@@ -1,32 +1,47 @@
 from pybtex.database.input import bibtex
 
+color = {
+    'title': '#2667ff',
+    'authors': '#415a77'
+}
+
+
 def get_personal_data():
     name = ["Dongjae", "Jeon"]
     email = "dongjae0324@yonsei.ac.kr"
-    twitter = "Mi_Niemeyer"
-    github = "m-niemeyer"
+    scholar = 'https://scholar.google.com/citations?user=SaaN_bAAAAAJ&hl=en'
+    # twitter = "Mi_Niemeyer"
+    github = "https://github.com/Dongjae0324"
     linkedin = "michael-niemeyer"
     bio_text = f"""
                 <p>
-                    I am an senior undergraduate student at Yonsei University, majoring in Economics and Computer Science.
-					Currently, I am working as an undergraduate intern at the <a href="https://snumprlab.github.io/index.html" target="_blank">Machine Perception and Reasoning Lab.
-					</a> at <a href="https://en.snu.ac.kr/" target="_blank">Seoul National University</a>, under the supervision of Professor <a href="https://ppolon.github.io/" target="_blank">Jonghyun Choi</a>.
+                    I am a senior undergraduate student at 
+    <a href="https://www.yonsei.ac.kr/en_sc/" target="_blank">Yonsei University</a>, majoring in Economics and Computer Science. 
+    Currently, I am an intern at the 
+    <a href="https://snumprlab.github.io/index.html" target="_blank">Machine Perception and Reasoning Lab</a> 
+    at 
+    <a href="https://en.snu.ac.kr/" target="_blank">Seoul National University</a>, 
+    supervised by Professor 
+    <a href="https://ppolon.github.io/" target="_blank">Jonghyun Choi</a>.<br><br>
 
-					My research interests lie in the domain of safe and reliable AI, particularly in multi-modal applications. 
-					Previously, I have conducted research on Continual Learning (CL) within the context of computer vision. 
-					My primary research goal is to understand how machines perceive representations and to develop methods to enhance their robustness and reliability.
+					My research interests lie in the domain of <em>safe</em> and <em>reliable AI</em>, particularly in multi-modal applications. 
+					Previously, I have conducted research on <em>Continual Learning</em> within the context of computer vision.
+				    Primarily, my goal is to understand how machines perceive and to develop methods to enhance their reliability for AI agents.
                 </p>
-                <p>For any inquiries, feel free to reach out to me via mail!</p>
+                <p>I enjoy collaborating with others. Feel free to contact via email!</p>
                 <p>
+                   <a href="https://dongjae0324.github.io/assets/other/bio.txt" target="_blank" style="margin-right: 5px"><i class="fa-solid fa-graduation-cap"></i> Bio</a>
+                    <a href="{email}" style="margin-right: 5px"><i class="far fa-envelope-open fa-lg"></i> Mail</a>
+                    <a href="{scholar}" target="_blank" style="margin-right: 5px"><i class="fa-solid fa-book"></i> Scholar</a>
+                    <a href="{github}" target="_blank" style="margin-right: 5px"><i class="fab fa-github fa-lg"></i> Github</a>
                 </p>
     """
     footer = """
             <div class="col-sm-12" style="">
-                <h4>Homepage Template</h4>
+                <hr>
                 <p>
-                    Feel free to use this website as a template! It is fully responsive and very easy to use and maintain as it uses a python script that crawls your bib files to automatically add the papers and talks. If you find it helpful, please add a link to my website - I will also add a link to yours (if you want). <a href="https://github.com/m-niemeyer/m-niemeyer.github.io" target="_blank">Checkout the github repository for instructions on how to use it</a>. <br>
-                    <a href="https://kashyap7x.github.io/" target="_blank">&#9883;</a>
-                    <a href="https://kait0.github.io/" target="_blank">&#9883;</a>
+                    Template from 
+                    <a href="https://m-niemeyer.github.io/" target="_blank">Michael Niemeyer</a>
                 </p>
             </div>
     """
@@ -36,9 +51,11 @@ def get_author_dict():
     return {
         'Wonje Jeung': 'https://cryinginitial.github.io',
         'Taeheon Kim': 'https://ta3h30nk1m.github.io',
+        'Albert No': 'https://albert-no.github.io/team/',
+        'Jonghyun Choi': 'https://ppolon.github.io', 
         }
 
-def generate_person_html(persons, connection=", ", make_bold=True, make_bold_name='Dongjae Jeon', add_links=True):
+def generate_person_html(persons, coauthor, connection=", ", make_bold=True, make_bold_name='Dongjae Jeon', add_links=True):
     links = get_author_dict() if add_links else {}
     s = ""
     for p in persons:
@@ -47,10 +64,12 @@ def generate_person_html(persons, connection=", ", make_bold=True, make_bold_nam
             if string_part_i != "":
                 string_part_i += " "
             string_part_i += name_part_i
+        
+        star = "" if string_part_i not in coauthor else "*"
         if string_part_i in links.keys():
-            string_part_i = f'<a href="{links[string_part_i]}" target="_blank">{string_part_i}</a>'
+                string_part_i = f'<a href="{links[string_part_i]}" target="_blank" style="color: {color["authors"]}" >{string_part_i}{star}</a>'
         if make_bold and string_part_i == make_bold_name:
-            string_part_i = f'<span style="font-weight: bold";>{make_bold_name}</span>'
+            string_part_i = f'<span style="font-weight: bold";>{string_part_i}{star}</span>'
         if p != persons[-1]:
             string_part_i += connection
         s += string_part_i
@@ -64,9 +83,9 @@ def get_paper_entry(entry_key, entry):
     if 'award' in entry.fields.keys():
         s += f"""<a href="{entry.fields['html']}" target="_blank">{entry.fields['title']}</a> <span style="color: red;">({entry.fields['award']})</span><br>"""
     else:
-        s += f"""<a href="{entry.fields['html']}" target="_blank">{entry.fields['title']}</a> <br>"""
+        s += f"""<a href="{entry.fields['html']}" target="_blank" style="color: {color['title']}">{entry.fields['title']}</a> <br>"""
 
-    s += f"""{generate_person_html(entry.persons['author'])} <br>"""
+    s += f"""{generate_person_html(entry.persons['author'], entry.fields['coauthor'])} <br>"""
     s += f"""<span style="font-style: italic;">{entry.fields['booktitle']}</span>, {entry.fields['year']} <br>"""
 
     artefacts = {'html': 'Project Page', 'pdf': 'Paper', 'supp': 'Supplemental', 'video': 'Video', 'poster': 'Poster', 'code': 'Code'}
@@ -81,7 +100,7 @@ def get_paper_entry(entry_key, entry):
             print(f'[{entry_key}] Warning: Field {k} missing!')
 
     cite = "<pre><code>@InProceedings{" + f"{entry_key}, \n"
-    cite += "\tauthor = {" + f"{generate_person_html(entry.persons['author'], make_bold=False, add_links=False, connection=' and ')}" + "}, \n"
+    cite += "\tauthor = {" + f"{generate_person_html(entry.persons['author'], entry.fields['coauthor'], make_bold=False, add_links=False, connection=' and ')}" + "}, \n"
     for entr in ['title', 'booktitle', 'year']:
         cite += f"\t{entr} = " + "{" + f"{entry.fields[entr]}" + "}, \n"
     cite += """}</pre></code>"""
@@ -109,6 +128,29 @@ def get_talk_entry(entry_key, entry):
     s += """ </div> </div> </div>"""
     return s
 
+
+def get_award_entry(entry_key, entry):
+    s = """<div style="margin-bottom: 3em;"> <div class="row"><div class="col-sm-3">"""
+    s += f"""<img src="{entry.fields['img']}" class="img-fluid img-thumbnail" alt="Project image">"""
+    s += """</div><div class="col-sm-9">"""
+    s += f"""<a href="{entry.fields['html']} target="_blank" style="color: {color['title']}">{entry.fields['title']}</a> <br>"""
+    s += f"""{entry.fields['rank']} place 🔥<br>"""
+    s += f"""<span style="font-style: italic;">{entry.fields['booktitle']}</span>, {entry.fields['year']} <br>"""
+
+    artefacts = {'slides': 'Slides', 'video': 'Recording', 'report': 'Report', 'certificate': 'Certificate'}
+    i = 0
+    for (k, v) in artefacts.items():
+        if k in entry.fields.keys():
+            if i > 0:
+                s += ' / '
+            s += f"""<a href="{entry.fields[k]}" target="_blank">{v}</a>"""
+            i += 1
+        else:
+            print(f'[{entry_key}] Warning: Field {k} missing!')
+    s += """ </div> </div> </div>"""
+    return s
+
+
 def get_publications_html():
     parser = bibtex.Parser()
     bib_data = parser.parse_file('publication_list.bib')
@@ -127,9 +169,19 @@ def get_talks_html():
         s+= get_talk_entry(k, bib_data.entries[k])
     return s
 
+def get_awards_html():
+    parser = bibtex.Parser()
+    bib_data = parser.parse_file('award_list.bib')
+    keys = bib_data.entries.keys()
+    s = ""
+    for k in keys:
+        s+= get_award_entry(k, bib_data.entries[k])
+    return s
+
 def get_index_html():
     pub = get_publications_html()
     talks = get_talks_html()
+    awards = get_awards_html()
     name, bio_text, footer = get_personal_data()
     s = f"""
     <!doctype html>
@@ -159,25 +211,33 @@ def get_index_html():
                     <h3 class="display-4" style="text-align: center;"><span style="font-weight: bold;">{name[0]}</span> {name[1]}</h3>
                     </div>
                     <br>
-                    <div class="col-md-10" style="">
+                    <div class="col-md-9" style="">
                         {bio_text}
                     </div>
-                    <div class="col-md-2" style="">
-                        <img src="assets/img/profile.jpg" class="img-thumbnail" width="280px" alt="Profile picture">
+                    <div class="col-md-3" style="width: auto; ">
+                        <img src="assets/img/profile.jpg" class="img-thumbnail" width="250px" alt="Profile picture">
                     </div>
                 </div>
                 <div class="row" style="margin-top: 1em;">
                     <div class="col-sm-12" style="">
-                        <h4>Publications</h4>
+                        <h4>Publications</h4><hr>
                         {pub}
                     </div>
                 </div>
-                <div class="row" style="margin-top: 3em;">
+                 <div class="row" style="margin-top: 3em;">
                     <div class="col-sm-12" style="">
-                        <h4>Talks</h4>
-                        {talks}
+                        <h4>Awards</h4><hr>
+                        {awards}
                     </div>
                 </div>
+                <!--
+                # <div class="row" style="margin-top: 3em;">
+                #     <div class="col-sm-12" style="">
+                #         <h4>Talks</h4>
+                #         {talks}
+                #     </div>
+                # </div>
+                -->
                 <div class="row" style="margin-top: 3em; margin-bottom: 1em;">
                     {footer}
                 </div>
