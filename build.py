@@ -12,21 +12,20 @@ def get_personal_data():
     scholar = 'https://scholar.google.com/citations?user=SaaN_bAAAAAJ&hl=en'
     # twitter = "Mi_Niemeyer"
     github = "https://github.com/Dongjae0324"
-    linkedin = "michael-niemeyer"
+    linkedin = "https://www.linkedin.com/in/dongjae-jeon-a74526255"
     bio_text = f"""
                 <p>
                     I am a senior undergraduate student at 
     <a href="https://www.yonsei.ac.kr/en_sc/" target="_blank">Yonsei University</a>, majoring in Economics and Computer Science. 
     Currently, I am an intern at the 
-    <a href="https://snumprlab.github.io/index.html" target="_blank">Machine Perception and Reasoning Lab</a> 
-    at 
-    <a href="https://en.snu.ac.kr/" target="_blank">Seoul National University</a>, 
-    supervised by Professor 
-    <a href="https://ppolon.github.io/" target="_blank">Jonghyun Choi</a>.<br><br>
+    <a href="https://albert-no.github.io/" target="_blank">Artificial Intelligence and Information Systems Lab</a> 
+    at Yonsei University, supervised by Professor 
+    <a href='https://albert-no.github.io/' target='_blank'>Albert No</a>.<br><br>
 
-					My research interests lie in the domain of <em>safe</em> and <em>reliable AI</em>, particularly in multi-modal applications. 
-					Previously, I have conducted research on <em>Continual Learning</em> within the context of computer vision.
-				    Primarily, my goal is to understand how machines perceive and to develop methods to enhance their reliability for AI agents.
+My research interests lie in the domain of <em>safe</em> and <em>reliable AI</em>, with a particular focus on generative models.  
+Previously, I have conducted research on <em>Continual Learning</em> in the context of computer vision.  
+My primary goal is to deepen our understanding of how machines perceive and to develop methods that enhance their reliability and robustness.
+
                 </p>
                 <p>I enjoy collaborating with others. Feel free to contact via email!</p>
                 <p>
@@ -34,6 +33,7 @@ def get_personal_data():
                     <a href="{email}" style="margin-right: 5px"><i class="far fa-envelope-open fa-lg"></i> Mail</a>
                     <a href="{scholar}" target="_blank" style="margin-right: 5px"><i class="fa-solid fa-book"></i> Scholar</a>
                     <a href="{github}" target="_blank" style="margin-right: 5px"><i class="fab fa-github fa-lg"></i> Github</a>
+                    <a href="{linkedin}" target="_blank" style="margin-right: 5px"><i class="fab fa-linkedin fa-lg"></i> LinkedIn</a>
                 </p>
     """
     footer = """
@@ -130,8 +130,9 @@ def get_talk_entry(entry_key, entry):
 
 
 def get_award_entry(entry_key, entry):
-    s = """<div style="margin-bottom: 3em;"> <div class="row"><div class="col-sm-3">"""
-    s += f"""<img src="{entry.fields['img']}" class="img-fluid img-thumbnail" alt="Project image">"""
+    # s = """<div style="margin-bottom: 3em;"> <div class="row"><div class="col-sm-3">"""
+    s = """<div style="margin-bottom: 1em;">"""
+    # s += f"""<img src="{entry.fields['img']}" class="img-fluid img-thumbnail" alt="Project image">"""
     s += """</div><div class="col-sm-9">"""
     s += f"""<a href="{entry.fields['html']} target="_blank" style="color: {color['title']}">{entry.fields['title']}</a> <br>"""
     s += f"""{entry.fields['rank']} place 🔥<br>"""
