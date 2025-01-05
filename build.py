@@ -39,7 +39,7 @@ My primary goal is to deepen our understanding of how machines perceive and to d
     footer = """
             <div class="col-sm-12" style="">
                 <hr>
-                <p>
+                <p style="padding-left: 25px;">
                     Template from 
                     <a href="https://m-niemeyer.github.io/" target="_blank">Michael Niemeyer</a>
                 </p>
@@ -199,7 +199,7 @@ def get_index_html():
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <title>{name[0] + ' ' + name[1]}</title>
-  <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 
 <body>
@@ -244,7 +244,7 @@ def get_index_html():
                 </div>
             </div>
             <div class="col-md-1"></div>
-        </div?
+        </div>
     </div>
 
     <!-- Optional JavaScript -->
