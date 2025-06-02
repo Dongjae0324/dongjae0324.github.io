@@ -64,10 +64,12 @@ def generate_person_html(persons, coauthor, connection=", ", make_bold=True, mak
             if string_part_i != "":
                 string_part_i += " "
             string_part_i += name_part_i
-        
         star = "" if string_part_i not in coauthor else "*"
         if string_part_i in links.keys():
-                string_part_i = f'<a href="{links[string_part_i]}" target="_blank" style="color: {color["authors"]}" >{string_part_i}{star}</a>'
+            string_part_i = f'<a href="{links[string_part_i]}" target="_blank" style="color: {color["authors"]}" >{string_part_i}{star}</a>'
+        elif string_part_i != make_bold_name:
+            string_part_i = f'<span style="color: {color["authors"]}">{string_part_i}{star}</span>'
+            
         if make_bold and string_part_i == make_bold_name:
             string_part_i = f'<span style="font-weight: bold";>{string_part_i}{star}</span>'
         if p != persons[-1]:
@@ -79,14 +81,26 @@ def get_paper_entry(entry_key, entry):
     s = """<div style="margin-bottom: 3em;"> <div class="row"><div class="col-sm-3">"""
     s += f"""<img src="{entry.fields['img']}" class="img-fluid img-thumbnail" alt="Project image">"""
     s += """</div><div class="col-sm-9">"""
+
+    s += f"""<a href="{entry.fields['html']}" target="_blank" style="color: {color['title']}">{entry.fields['title']}</a> <br>"""
+    s += f"""<div style="margin-bottom: 4px;">{generate_person_html(entry.persons['author'], entry.fields['coauthor'])}</div>"""
+    
     if 'award' in entry.fields.keys():
-        s += f"""<a href="{entry.fields['html']}" target="_blank">{entry.fields['title']}</a> <span style="color: red;">({entry.fields['award']})</span><br>"""
+        s += f"""<span style="font-style: normal;">{entry.fields['booktitle']}</span>, {entry.fields['year']} <span style="color: red;">({entry.fields['award']})</span> <br>"""
     else:
-        s += f"""<a href="{entry.fields['html']}" target="_blank" style="color: {color['title']}">{entry.fields['title']}</a> <br>"""
+        s += f"""<span style="font-style: normal;">{entry.fields['booktitle']}</span>, {entry.fields['year']} <br>"""
 
-    s += f"""{generate_person_html(entry.persons['author'], entry.fields['coauthor'])} <br>"""
-    s += f"""<span style="font-style: italic;">{entry.fields['booktitle']}</span>, {entry.fields['year']} <br>"""
+    if 'prev_booktitle' in entry.fields:
+        prev_info = f"{entry.fields['prev_booktitle']}"
+        if 'prev_year' in entry.fields:
+            prev_info += f", {entry.fields['prev_year']}"
+            
+        if 'prev_award' in entry.fields:
+            s += f"""<span style="color: #888; font-size: 95%;">Prelim @ {prev_info}</span> <span style="color: red;">({entry.fields['prev_award']})</span><br>"""
+        else:
+            s += f"""<span style="color: #888; font-size: 95%;">Prelim @ {prev_info}</span><br>"""
 
+        
     artefacts = {'html': 'Project Page', 'pdf': 'Paper', 'supp': 'Supplemental', 'video': 'Video', 'poster': 'Poster', 'code': 'Code'}
     i = 0
     for (k, v) in artefacts.items():
@@ -98,12 +112,12 @@ def get_paper_entry(entry_key, entry):
         else:
             print(f'[{entry_key}] Warning: Field {k} missing!')
 
-    cite = "<pre><code>@InProceedings{" + f"{entry_key}, \n"
-    cite += "\tauthor = {" + f"{generate_person_html(entry.persons['author'], entry.fields['coauthor'], make_bold=False, add_links=False, connection=' and ')}" + "}, \n"
-    for entr in ['title', 'booktitle', 'year']:
-        cite += f"\t{entr} = " + "{" + f"{entry.fields[entr]}" + "}, \n"
-    cite += """}</pre></code>"""
-    s += " /" + f"""<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse{entry_key}" aria-expanded="false" aria-controls="collapseExample" style="margin-left: -6px; margin-top: -2px;">Expand bibtex</button><div class="collapse" id="collapse{entry_key}"><div class="card card-body">{cite}</div></div>"""
+    # cite = "<pre><code>@InProceedings{" + f"{entry_key}, \n"
+    # cite += "\tauthor = {" + f"{generate_person_html(entry.persons['author'], entry.fields['coauthor'], make_bold=False, add_links=False, connection=' and ')}" + "}, \n"
+    # for entr in ['title', 'booktitle', 'year']:
+    #     cite += f"\t{entr} = " + "{" + f"{entry.fields[entr]}" + "}, \n"
+    # cite += """}</pre></code>"""
+    # s += " /" + f"""<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse{entry_key}" aria-expanded="false" aria-controls="collapseExample" style="margin-left: -6px; margin-top: -2px;">Expand bibtex</button><div class="collapse" id="collapse{entry_key}"><div class="card card-body">{cite}</div></div>"""
     s += """ </div> </div> </div>"""
     return s
 
