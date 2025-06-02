@@ -1,4 +1,6 @@
 from pybtex.database.input import bibtex
+from pybtex.database import parse_file
+import json
 
 color = {
     'title': '#2667ff',
@@ -77,6 +79,31 @@ def generate_person_html(persons, coauthor, connection=", ", make_bold=True, mak
         s += string_part_i
     return s
 
+def get_news_entry(entry):
+    month_names = {
+        1: "Jan", 2: "Feb", 3: "Mar", 4: "Apr",
+        5: "May", 6: "Jun", 7: "Jul", 8: "Aug",
+        9: "Sep", 10: "Oct", 11: "Nov", 12: "Dec"
+    }
+
+    year = entry.get("year", "")
+    month = entry.get("month", "")
+    content = entry.get("content", "")
+
+    try:
+        month_name = month_names[int(month)]
+    except:
+        month_name = ""
+
+    if month_name and year:
+        return f"""<span style="display: inline-block; min-width: 5em;"><b>{month_name} {year}:</b></span> {content}<br>\n"""
+    elif year:
+        return f"""<span style="display: inline-block; min-width: 6em;"><b>{year}</b></span> {content}<br>\n"""
+    else:
+        return f"{content}<br>\n"
+
+
+
 def get_paper_entry(entry_key, entry):
     s = """<div style="margin-bottom: 3em;"> <div class="row"><div class="col-sm-3">"""
     s += f"""<img src="{entry.fields['img']}" class="img-fluid img-thumbnail" alt="Project image">"""
@@ -86,7 +113,7 @@ def get_paper_entry(entry_key, entry):
     s += f"""<div style="margin-bottom: 4px;">{generate_person_html(entry.persons['author'], entry.fields['coauthor'])}</div>"""
     
     if 'award' in entry.fields.keys():
-        s += f"""<span style="font-style: normal;">{entry.fields['booktitle']}</span>, {entry.fields['year']} <span style="color: red;">({entry.fields['award']})</span> <br>"""
+        s += f"""<span style="font-style: normal;">{entry.fields['booktitle']}</span>, {entry.fields['year']} <span style="color: blue;">({entry.fields['award']})</span> <br>"""
     else:
         s += f"""<span style="font-style: normal;">{entry.fields['booktitle']}</span>, {entry.fields['year']} <br>"""
 
@@ -96,12 +123,12 @@ def get_paper_entry(entry_key, entry):
             prev_info += f", {entry.fields['prev_year']}"
             
         if 'prev_award' in entry.fields:
-            s += f"""<span style="color: #888; font-size: 95%;">Prelim @ {prev_info}</span> <span style="color: red;">({entry.fields['prev_award']})</span><br>"""
+            s += f"""<span style="color: #888; font-size: 95%;">prelim @ {prev_info}</span> <span style="color: blue;">({entry.fields['prev_award']})</span><br>"""
         else:
-            s += f"""<span style="color: #888; font-size: 95%;">Prelim @ {prev_info}</span><br>"""
+            s += f"""<span style="color: #888; font-size: 95%;">prelim @ {prev_info}</span><br>"""
 
         
-    artefacts = {'html': 'Project Page', 'pdf': 'Paper', 'supp': 'Supplemental', 'video': 'Video', 'poster': 'Poster', 'code': 'Code'}
+    artefacts = {'html': '[page]', 'pdf': 'Paper', 'supp': 'Supplemental', 'video': 'Video', 'poster': 'Poster', 'code': 'Code'}
     i = 0
     for (k, v) in artefacts.items():
         if k in entry.fields.keys():
@@ -164,6 +191,18 @@ def get_award_entry(entry_key, entry):
     s += """ </div> </div> </div>"""
     return s
 
+def get_news_html():
+    with open('news_list.json', 'r') as f:
+        news_entries = json.load(f)
+
+    # 날짜 기준으로 정렬 (최근 것이 위로)
+    news_entries.sort(key=lambda e: (e.get("year", 0), e.get("month", 0)), reverse=True)
+    s = ""
+    for entry in news_entries:
+        s += get_news_entry(entry)
+    s += '</p>'
+    return s
+
 
 def get_publications_html():
     parser = bibtex.Parser()
@@ -193,6 +232,7 @@ def get_awards_html():
     return s
 
 def get_index_html():
+    news = get_news_html()
     pub = get_publications_html()
     talks = get_talks_html()
     awards = get_awards_html()
@@ -232,7 +272,13 @@ def get_index_html():
                         <img src="assets/img/profile.jpg" class="img-thumbnail" width="250px" alt="Profile picture">
                     </div>
                 </div>
-                <div class="row" style="margin-top: 1em;">
+                <div class="row" style="margin-top: 2em;">
+                    <div class="col-sm-12" style="">
+                        <h4>News</h4><hr>
+                        {news}
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 3em;">
                     <div class="col-sm-12" style="">
                         <h4>Publications</h4><hr>
                         {pub}
