@@ -7,6 +7,11 @@
   {
     "month": 5,
     "year": 2025,
-    "content": "<span style=\"color:#2667ff; font-weight: normal;\">SAIL</span> is accepted to ICML 2025 as <span style=\"color:#2667ff; font-weight: normal;\">Spotlight poster (top 2.6%)</span>! See you in Canada 🇨🇦!"
+    "content": "<span style=\"color:#2667ff; font-weight: normal;\">SAIL</span> is accepted to ICML 2025 as <span style=\"color:#2667ff; font-weight: normal;\">Spotlight (top 2.6% = 313/12,107)</span>! See you in Canada 🇨🇦!"
+  },
+  {
+    "month": 6,
+    "year": 2025,
+    "content": "<span style=\"color:#2667ff; font-weight: normal;\">SRR</span> is accepted to ICML 2025 (TTODLer-FM workshop) as <span style=\"color:#2667ff; font-weight: normal;\">Oral</span>!"
   }
 ]
