@@ -13,5 +13,10 @@
     "month": 6,
     "year": 2025,
     "content": "<span style=\"color:#2667ff; font-weight: normal;\">SRR</span> is accepted to ICML 2025 (TTODLer-FM workshop) as <span style=\"color:#2667ff; font-weight: normal;\">Oral</span>!"
+  },
+  {
+    "month": 8,
+    "year": 2025,
+    "content": "Official code for ICML 2025 paper is uploaded! Checkout!"
   }
 ]

@@ -5,6 +5,8 @@ import json
 color = {
     'title': '#2667ff',
     'authors': '#415a77'
+    #safety: 003161
+    #efficient: 27391C
 }
 
 
@@ -17,16 +19,17 @@ def get_personal_data():
     linkedin = "https://www.linkedin.com/in/dongjae-jeon-a74526255"
     bio_text = f"""
                 <p>
-                    I am a senior undergraduate student at 
-    <a href="https://www.yonsei.ac.kr/en_sc/" target="_blank">Yonsei University</a>, majoring in Economics and Computer Science. 
-    Currently, I am an intern at the 
+    I am an incoming master's student in Computer Science at 
+    <a href="https://www.yonsei.ac.kr/en_sc/" target="_blank">Yonsei University</a>, 
+    joining the 
     <a href="https://albert-no.github.io/" target="_blank">Artificial Intelligence and Information Systems Lab</a> 
-    at Yonsei University, supervised by Professor 
-    <a href='https://albert-no.github.io/' target='_blank'>Albert No</a>.<br><br>
+    under the supervision of Professor 
+    <a href="https://albert-no.github.io/" target="_blank">Albert No</a>.</a><br><br>
 
-My research interests lie in the domain of <em>safe</em> and <em>reliable AI</em>, with a particular focus on generative models.  
-Previously, I have conducted research on <em>Continual Learning</em> in the context of computer vision.  
-My primary goal is to deepen our understanding of how machines perceive and to develop methods that enhance their reliability and robustness.
+    My research interests lie in the domain of <span style="color:#0046FF;">safe and reliable AI</span>, with a particular focus on <span style="color:#FF6F3C;"> generative models </span>.  
+    I am also interested in developing  <span style="color:#03A791;">efficient AI</span> system.    
+    Previously, I have conducted research on <em>Continual Learning</em> in the context of computer vision.  
+    My primary goal is to deepen our understanding of how machines perceive and to create methods that enhance their reliability.
 
                 </p>
                 <p>I enjoy collaborating with others. Feel free to contact via email!</p>
@@ -109,44 +112,57 @@ def get_paper_entry(entry_key, entry):
     s += f"""<img src="{entry.fields['img']}" class="img-fluid img-thumbnail" alt="Project image">"""
     s += """</div><div class="col-sm-9">"""
 
-    s += f"""<a href="{entry.fields['html']}" target="_blank" style="color: {color['title']}">{entry.fields['title']}</a> <br>"""
+    # ====== Paper Title ======
+    s += f"""<a href="{entry.fields['html']}" target="_blank" style="color: {color['title']}">{entry.fields['title']}</a>"""
+
+    # ====== Add Color-Coded Tags ======
+    tag_colors = {
+        "Safety": "#0046FF",
+        "DGMs": "#FF6F3C",
+        "Efficient ML": "#03A791"
+    }
+    if 'tags' in entry.fields:
+        for tag in entry.fields['tags'].split(','):
+            t = tag.strip()
+            bg = tag_colors.get(t, "#888")  # default grey if not found
+            s += f""" <span style="background-color:{bg}; color:white; border-radius:4px; padding:2px 6px; font-size:80%; margin-left:4px;">{t}</span>"""
+
+    s += "<br>"
+
+    # ====== Author Line ======
     s += f"""<div style="margin-bottom: 4px;">{generate_person_html(entry.persons['author'], entry.fields['coauthor'])}</div>"""
-    
+
+    # ====== Venue Info ======
     if 'award' in entry.fields.keys():
         s += f"""<span style="font-style: normal;">{entry.fields['booktitle']}</span>, {entry.fields['year']} <span style="color: blue;">({entry.fields['award']})</span> <br>"""
     else:
         s += f"""<span style="font-style: normal;">{entry.fields['booktitle']}</span>, {entry.fields['year']} <br>"""
 
+    # ====== Previous Version Info ======
     if 'prev_booktitle' in entry.fields:
         prev_info = f"{entry.fields['prev_booktitle']}"
         if 'prev_year' in entry.fields:
             prev_info += f", {entry.fields['prev_year']}"
-            
         if 'prev_award' in entry.fields:
             s += f"""<span style="color: #888; font-size: 95%;">prelim @ {prev_info}</span> <span style="color: blue;">({entry.fields['prev_award']})</span><br>"""
         else:
             s += f"""<span style="color: #888; font-size: 95%;">prelim @ {prev_info}</span><br>"""
 
-        
-    artefacts = {'html': '[arXiv]', 'pdf': 'Paper', 'supp': 'Supplemental', 'video': 'Video', 'poster': 'Poster', 'code': 'Code'}
+    # ====== Artefacts ======
+    artefacts = {'html': '[arXiv]', 'slides': '[slide]', 'code': '[code]', 'video': 'Video', 'poster': 'Poster',}
     i = 0
     for (k, v) in artefacts.items():
         if k in entry.fields.keys():
             if i > 0:
-                s += ' / '
+                s += ' '
             s += f"""<a href="{entry.fields[k]}" target="_blank">{v}</a>"""
             i += 1
         else:
             print(f'[{entry_key}] Warning: Field {k} missing!')
 
-    # cite = "<pre><code>@InProceedings{" + f"{entry_key}, \n"
-    # cite += "\tauthor = {" + f"{generate_person_html(entry.persons['author'], entry.fields['coauthor'], make_bold=False, add_links=False, connection=' and ')}" + "}, \n"
-    # for entr in ['title', 'booktitle', 'year']:
-    #     cite += f"\t{entr} = " + "{" + f"{entry.fields[entr]}" + "}, \n"
-    # cite += """}</pre></code>"""
-    # s += " /" + f"""<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse{entry_key}" aria-expanded="false" aria-controls="collapseExample" style="margin-left: -6px; margin-top: -2px;">Expand bibtex</button><div class="collapse" id="collapse{entry_key}"><div class="card card-body">{cite}</div></div>"""
     s += """ </div> </div> </div>"""
     return s
+
 
 def get_talk_entry(entry_key, entry):
     s = """<div style="margin-bottom: 3em;"> <div class="row"><div class="col-sm-3">"""
@@ -250,6 +266,14 @@ def get_index_html():
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+    @media (min-width: 1100px) {{
+        .container {{
+            max-width: 1200px;
+        }}
+    }}
+    </style>
 
   <title>{name[0] + ' ' + name[1]}</title>
   <link rel="icon" type="image/x-icon" href="favicon.ico">
