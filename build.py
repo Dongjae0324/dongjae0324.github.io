@@ -31,8 +31,9 @@ def get_personal_data():
     Previously, I have conducted research on <em>Continual Learning</em> in the context of computer vision.  
     My primary goal is to deepen our understanding of how machines perceive and to create methods that enhance their reliability.
 
-                </p>
-                <p>I enjoy collaborating with others. Feel free to contact via email!</p>
+    </p>
+    <p>Here is my <a href="https://dongjae0324.github.io/assets/pdf/CV_dongjae_jeon.pdf" target="_blank">CV</a>. Feel free to contact me via email if you are interested.</p>
+
                 <p>
                    <a href="https://dongjae0324.github.io/assets/other/bio.txt" target="_blank" style="margin-right: 5px"><i class="fa-solid fa-graduation-cap"></i> Bio</a>
                     <a href="{email}" style="margin-right: 5px"><i class="far fa-envelope-open fa-lg"></i> Mail</a>
