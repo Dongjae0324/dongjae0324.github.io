@@ -17,6 +17,11 @@
   {
     "month": 8,
     "year": 2025,
-    "content": "Official code for ICML 2025 paper is uploaded! Checkout!"
+    "content": "Official code for ICML 2025 paper is uploaded! Ceckout!"
+  },
+  {
+    "month": 8,
+    "year": 2025,
+    "content": "I gave a talk at <a href=\"https://mlsys.yonsei.ac.kr/\" target=\"_blank\" style=\"color:#2667ff;\">Yonsei MLSys student group</a> on Diffusion models &amp; their privacy issues."
   }
 ]

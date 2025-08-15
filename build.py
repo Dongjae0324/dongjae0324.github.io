@@ -26,7 +26,7 @@ def get_personal_data():
     under the supervision of Professor 
     <a href="https://albert-no.github.io/" target="_blank">Albert No</a>.</a><br><br>
 
-    My research interests lie in the domain of <span style="color:#0046FF;">safe and reliable AI</span>, with a particular focus on <span style="color:#FF6F3C;"> generative models </span>.  
+    My research interests lie in the domain of <span style="color:#0046FF;">safe and reliable AI</span>, with a particular focus on <span style="color:#FF6F3C;"> generative models</span>.  
     I am also interested in developing  <span style="color:#03A791;">efficient AI</span> system.    
     Previously, I have conducted research on <em>Continual Learning</em> in the context of computer vision.  
     My primary goal is to deepen our understanding of how machines perceive and to create methods that enhance their reliability.
@@ -172,7 +172,7 @@ def get_talk_entry(entry_key, entry):
     s += f"""{entry.fields['title']}<br>"""
     s += f"""<span style="font-style: italic;">{entry.fields['booktitle']}</span>, {entry.fields['year']} <br>"""
 
-    artefacts = {'slides': 'Slides', 'video': 'Recording'}
+    artefacts = {'slides': '[slide]', 'video': '[rec]'}
     i = 0
     for (k, v) in artefacts.items():
         if k in entry.fields.keys():
@@ -184,29 +184,81 @@ def get_talk_entry(entry_key, entry):
             print(f'[{entry_key}] Warning: Field {k} missing!')
     s += """ </div> </div> </div>"""
     return s
-
 
 def get_award_entry(entry_key, entry):
-    # s = """<div style="margin-bottom: 3em;"> <div class="row"><div class="col-sm-3">"""
-    s = """<div style="margin-bottom: 1em;">"""
-    # s += f"""<img src="{entry.fields['img']}" class="img-fluid img-thumbnail" alt="Project image">"""
-    s += """</div><div class="col-sm-9">"""
-    s += f"""<a href="{entry.fields['html']} target="_blank" style="color: {color['title']}">{entry.fields['title']}</a> <br>"""
-    s += f"""{entry.fields['rank']} place 🔥<br>"""
-    s += f"""<span style="font-style: italic;">{entry.fields['booktitle']}</span>, {entry.fields['year']} <br>"""
+    # Safe accessors
+    flds = entry.fields
+    url = flds.get("html", "#")
+    title = flds.get("title", "")
+    rank = flds.get("rank", "")
+    booktitle = flds.get("booktitle", "")
+    year = flds.get("year", "")
+    title_color = color.get("title", "#2667ff")
 
-    artefacts = {'slides': 'Slides', 'video': 'Recording', 'report': 'Report', 'certificate': 'Certificate'}
-    i = 0
-    for (k, v) in artefacts.items():
-        if k in entry.fields.keys():
-            if i > 0:
-                s += ' / '
-            s += f"""<a href="{entry.fields[k]}" target="_blank">{v}</a>"""
-            i += 1
-        else:
-            print(f'[{entry_key}] Warning: Field {k} missing!')
-    s += """ </div> </div> </div>"""
-    return s
+    parts = []
+    parts.append('<div class="row mb-3">')
+
+    # Optional image column
+    if "img" in flds and flds["img"]:
+        parts.append(
+            f'<div class="col-sm-3">'
+            f'<img src="{flds["img"]}" class="img-fluid img-thumbnail" alt="Project image">'
+            f'</div>'
+        )
+        text_col = "col-sm-9"
+    else:
+        text_col = "col-sm-12"
+
+    # Text column
+    parts.append(f'<div class="{text_col}">')
+    parts.append(
+        f'<a href="{url}" target="_blank" style="color: {title_color}">{title}</a><br>'
+    )
+    if rank:
+        parts.append(f'{rank} place 🔥<br>')
+    parts.append(f'<span style="font-style: italic;">{booktitle}</span>, {year}<br>')
+
+    # Artefacts (optional links)
+    artefacts = {
+        "slides": "[slide]",
+        "video": "Recording",
+        "report": "[report]",
+        "certificate": "Certificate",
+    }
+    links = []
+    for k, v in artefacts.items():
+        if k in flds and flds[k]:
+            links.append(f'<a href="{flds[k]}" target="_blank">{v}</a>')
+        # else: optionally log a warning if you want
+
+    if links:
+        parts.append(" / ".join(links))
+
+    parts.append("</div>")   # close text col
+    parts.append("</div>")   # close row
+
+    return "".join(parts)
+# def get_award_entry(entry_key, entry):
+#     # s = """<div style="margin-bottom: 3em;"> <div class="row"><div class="col-sm-3">"""
+#     s = """<div style="margin-bottom: 1em;">"""
+#     # s += f"""<img src="{entry.fields['img']}" class="img-fluid img-thumbnail" alt="Project image">"""
+#     s += """</div><div class="col-sm-9">"""
+#     s += f"""<a href="{entry.fields['html']} target="_blank" style="color: {color['title']}">{entry.fields['title']}</a> <br>"""
+#     s += f"""{entry.fields['rank']} place 🔥<br>"""
+#     s += f"""<span style="font-style: italic;">{entry.fields['booktitle']}</span>, {entry.fields['year']} <br>"""
+
+#     artefacts = {'slides': 'Slides', 'video': 'Recording', 'report': 'Report', 'certificate': 'Certificate'}
+#     i = 0
+#     for (k, v) in artefacts.items():
+#         if k in entry.fields.keys():
+#             if i > 0:
+#                 s += ' / '
+#             s += f"""<a href="{entry.fields[k]}" target="_blank">{v}</a>"""
+#             i += 1
+#         else:
+#             print(f'[{entry_key}] Warning: Field {k} missing!')
+#     s += """ </div> </div> </div>"""
+#     return s
 
 def get_news_html():
     with open('news_list.json', 'r') as f:
@@ -309,20 +361,19 @@ def get_index_html():
                         {pub}
                     </div>
                 </div>
-                 <div class="row" style="margin-top: 3em;">
+                <div class="row" style="margin-top: 3em;">
                     <div class="col-sm-12" style="">
                         <h4>Awards</h4><hr>
                         {awards}
                     </div>
                 </div>
-                <!--
-                # <div class="row" style="margin-top: 3em;">
-                #     <div class="col-sm-12" style="">
-                #         <h4>Talks</h4>
-                #         {talks}
-                #     </div>
-                # </div>
-                -->
+                <div class="row" style="margin-top: 3em;">
+                    <div class="col-sm-12" style="">
+                        <h4>Talks</h4>
+                        <hr>
+                        {talks}
+                    </div>
+                </div>
                 <div class="row" style="margin-top: 3em; margin-bottom: 1em;">
                     {footer}
                 </div>
