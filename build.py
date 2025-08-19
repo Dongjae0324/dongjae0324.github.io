@@ -26,7 +26,7 @@ def get_personal_data():
     under the supervision of Professor 
     <a href="https://albert-no.github.io/" target="_blank">Albert No</a>.</a><br><br>
 
-    My research interests lie in the domain of <span style="color:#0046FF;">safe and reliable AI</span>, with a particular focus on <span style="color:#FF6F3C;"> generative models</span>.  
+    My research interests lie in the domain of <span style="color:#0046FF;">safe and reliable AI</span>, with a particular focus on generative models.  
     I am also interested in developing  <span style="color:#03A791;">efficient AI</span> system.    
     Previously, I have conducted research on <em>Continual Learning</em> in the context of computer vision.  
     My primary goal is to deepen our understanding of how machines perceive and to create methods that enhance their reliability.
@@ -45,7 +45,7 @@ def get_personal_data():
     footer = """
             <div class="col-sm-12" style="">
                 <hr>
-                <p style="padding-left: 50px;">
+                <p style="padding-left: 5px;">
                     Template borrowed from 
                     <a href="https://m-niemeyer.github.io/" target="_blank">Here</a>
                 </p>
