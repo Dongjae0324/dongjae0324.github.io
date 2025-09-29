@@ -19,15 +19,17 @@ def get_personal_data():
     linkedin = "https://www.linkedin.com/in/dongjae-jeon-a74526255"
     bio_text = f"""
                 <p>
-    I am an incoming master's student in Computer Science at 
-    <a href="https://www.yonsei.ac.kr/en_sc/" target="_blank">Yonsei University</a>, 
-    joining the 
-    <a href="https://albert-no.github.io/" target="_blank">Artificial Intelligence and Information Systems Lab</a> 
-    under the supervision of Professor 
-    <a href="https://albert-no.github.io/" target="_blank">Albert No</a>.</a><br><br>
+    I am a first-year master's student in Computer Science at  
+    <a href="https://www.yonsei.ac.kr/en_sc/" target="_blank">Yonsei University</a>,  
+    working in the  
+    <a href="https://albert-no.github.io/" target="_blank">Artificial Intelligence and Information Systems Lab</a>  
+    with Professor <a href="https://albert-no.github.io/" target="_blank">Albert No</a>.<br><br>
 
-    My research interests lie in the domain of <span style="color:#0046FF;">safe and reliable AI</span>, with a particular focus on generative models.  
-    I am also interested in developing  <span style="color:#03A791;">efficient AI</span> system.    
+    
+    My research focuses on <span style="color:#0046FF;">safe and reliable AI</span>, with an emphasis on generative models.  
+    Currently, I am interested in advancing Diffusion Language Models (sampling methodologies and architectures).  
+    I also pursue the development of <span style="color:#03A791;">efficient AI</span> systems.
+
     Previously, I have conducted research on <em>Continual Learning</em> in the context of computer vision.  
     My primary goal is to deepen our understanding of how machines perceive and to create methods that enhance their reliability.
 

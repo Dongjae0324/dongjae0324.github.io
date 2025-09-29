@@ -23,5 +23,10 @@
     "month": 8,
     "year": 2025,
     "content": "I gave a talk at <a href=\"https://mlsys.yonsei.ac.kr/\" target=\"_blank\" style=\"color:#2667ff;\">Yonsei MLSys student group</a> on Diffusion models &amp; their privacy issues."
+  },
+  {
+    "month": 9,
+    "year": 2025,
+    "content": "A paper on Diffusion Language Model is accepted to NeurIPS 2025. Kudos to my co-authors! See you in San Diego 🇺🇸!"
   }
 ]
