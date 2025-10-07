@@ -152,7 +152,7 @@ def get_paper_entry(entry_key, entry):
             s += f"""<span style="color: #888; font-size: 95%;">prelim @ {prev_info}</span><br>"""
 
     # ====== Artefacts ======
-    artefacts = {'html': '[arXiv]', 'slides': '[slide]', 'code': '[code]', 'video': 'Video', 'poster': 'Poster',}
+    artefacts = {'html': '[arXiv]', 'slides': '[slide]', 'code': '[code]', 'video': 'Video', 'poster': 'Poster', 'prjpage': '[Project Page]'}
     i = 0
     for (k, v) in artefacts.items():
         if k in entry.fields.keys():
