@@ -23,20 +23,15 @@ def get_personal_data():
     <a href="https://www.yonsei.ac.kr/en_sc/" target="_blank">Yonsei University</a>,  
     working in the  
     <a href="https://albert-no.github.io/" target="_blank">Artificial Intelligence and Information Systems Lab</a>  
-    with Professor <a href="https://albert-no.github.io/" target="_blank">Albert No</a>.
-    <p>I am broadly interested in generative models, currently focusing on three specific areas:</p>
+    with Professor <a href="https://albert-no.github.io/" target="_blank">Albert No</a>.<br><br>
 
-    <ul>
-        <li><span style="color:#0046FF; font-weight: 500">Safety and Privacy:</span> Ensuring the responsible deployment of generative systems.</li>
-        
-        <li><span style="color:black; font-weight: 500;">Methodologies:</span> Advancing core techniques (sampling methods and new architectures).</li>
-        
-        <li><span style="color:#03A791; font-weight: 500;">Efficient AI:</span> Optimizing models for real-world deployment under resource constraints.</li>
-    </ul>
     
-    I have prior experience in <em>Continual Learning</em> applied to computer vision, specifically Object Detection.
-    My primary goal is to deepen our understanding of how machines perceive and, ultimately, 
-    leverage that understanding to empower AI for societal good.
+    My research focuses on <span style="color:#0046FF;">safe and reliable AI</span>, with an emphasis on generative models.  
+    Currently, I am interested in advancing Diffusion Language Models (sampling methodologies and architectures).  
+    I also pursue the development of <span style="color:#03A791;">efficient AI</span> systems.
+
+    Previously, I have conducted research on <em>Continual Learning</em> in the context of computer vision.  
+    My primary goal is to deepen our understanding of how machines perceive and to create methods that enhance their reliability.
 
     </p>
     <p>Here is my <a href="https://dongjae0324.github.io/assets/pdf/CV_dongjae_jeon.pdf" target="_blank">CV</a>. Feel free to contact me via email if you are interested.</p>
@@ -142,9 +137,9 @@ def get_paper_entry(entry_key, entry):
 
     # ====== Venue Info ======
     if 'award' in entry.fields.keys():
-        s += f"""<span style="font-weight: bold;">{entry.fields['booktitle']}</span>, {entry.fields['year']} <span style="color: blue;">({entry.fields['award']})</span> <br>"""
+        s += f"""<span style="font-style: normal;">{entry.fields['booktitle']}</span>, {entry.fields['year']} <span style="color: blue;">({entry.fields['award']})</span> <br>"""
     else:
-        s += f"""<span style="font-weight: bold;">{entry.fields['booktitle']}</span>, {entry.fields['year']} <br>"""
+        s += f"""<span style="font-style: normal;">{entry.fields['booktitle']}</span>, {entry.fields['year']} <br>"""
 
     # ====== Previous Version Info ======
     if 'prev_booktitle' in entry.fields:
@@ -318,7 +313,6 @@ def get_awards_html():
 
 def get_index_html():
     news = get_news_html()
-    prep = get_preprints_html()
     pub = get_publications_html()
     talks = get_talks_html()
     awards = get_awards_html()
@@ -370,12 +364,6 @@ def get_index_html():
                     <div class="col-sm-12" style="">
                         <h4>News</h4><hr>
                         {news}
-                    </div>
-                </div>
-                <div class="row" style="margin-top: 3em;">
-                    <div class="col-sm-12" style="">
-                        <h4>Preprints</h4><hr>
-                        {prep}
                     </div>
                 </div>
                 <div class="row" style="margin-top: 3em;">

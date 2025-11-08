@@ -34,7 +34,7 @@ def get_personal_data():
         <li><span style="color:#03A791; font-weight: 500;">Efficient AI:</span> Optimizing models for real-world deployment under resource constraints.</li>
     </ul>
     
-    I have prior experience in <em>Continual Learning</em> applied to computer vision, specifically Object Detection.
+    Previously, I have experience on <em>Continual Learning</em> in context of computer vision (Object Detection). 
     My primary goal is to deepen our understanding of how machines perceive and, ultimately, 
     leverage that understanding to empower AI for societal good.
 

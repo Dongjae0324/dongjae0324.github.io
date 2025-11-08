@@ -34,9 +34,10 @@ def get_personal_data():
         <li><span style="color:#03A791; font-weight: 500;">Efficient AI:</span> Optimizing models for real-world deployment under resource constraints.</li>
     </ul>
     
-    I have prior experience in <em>Continual Learning</em> applied to computer vision, specifically Object Detection.
-    My primary goal is to deepen our understanding of how machines perceive and, ultimately, 
-    leverage that understanding to empower AI for societal good.
+    Previously, I have 
+    
+    I have conducted research on <em>Continual Learning</em> in the context of computer vision.  
+    My primary goal is to deepen our understanding of how machines perceive and to create methods that enhance their reliability.
 
     </p>
     <p>Here is my <a href="https://dongjae0324.github.io/assets/pdf/CV_dongjae_jeon.pdf" target="_blank">CV</a>. Feel free to contact me via email if you are interested.</p>

@@ -23,20 +23,26 @@ def get_personal_data():
     <a href="https://www.yonsei.ac.kr/en_sc/" target="_blank">Yonsei University</a>,  
     working in the  
     <a href="https://albert-no.github.io/" target="_blank">Artificial Intelligence and Information Systems Lab</a>  
-    with Professor <a href="https://albert-no.github.io/" target="_blank">Albert No</a>.
-    <p>I am broadly interested in generative models, currently focusing on three specific areas:</p>
+    with Professor <a href="https://albert-no.github.io/" target="_blank">Albert No</a>.<br><br>
+
+    <p>I am broadly interested in <strong>generative models</strong>, focusing on three specific areas:</p>
 
     <ul>
-        <li><span style="color:#0046FF; font-weight: 500">Safety and Privacy:</span> Ensuring the responsible deployment of generative systems.</li>
+        <li><span style="color:#0046FF;"><strong>Safety and Privacy:</strong></span> Ensuring the responsible and secure development and deployment of generative systems.</li>
         
-        <li><span style="color:black; font-weight: 500;">Methodologies:</span> Advancing core techniques (sampling methods and new architectures).</li>
+        <li><strong>Methodological Enhancements:</strong> Advancing core techniques, including novel sampling methods and new architectures like diffusion language models.</li>
         
-        <li><span style="color:#03A791; font-weight: 500;">Efficient AI:</span> Optimizing models for real-world deployment under resource constraints.</li>
+        <li><span style="color:#03A791;"><strong>Efficient AI:</strong></span> Optimizing models for real-world deployment and resource-constrained environments.</li>
     </ul>
     
-    I have prior experience in <em>Continual Learning</em> applied to computer vision, specifically Object Detection.
-    My primary goal is to deepen our understanding of how machines perceive and, ultimately, 
-    leverage that understanding to empower AI for societal good.
+    with focus on its <span style="color:#0046FF;">safety and reliableness</span>.
+    
+    My research focuses on <span style="color:#0046FF;">safe and reliable AI</span>, with an emphasis on generative models.  
+    Currently, I am interested in advancing Diffusion Language Models (sampling methodologies and architectures).  
+    I also pursue the development of <span style="color:#03A791;">efficient AI</span> systems.
+
+    Previously, I have conducted research on <em>Continual Learning</em> in the context of computer vision.  
+    My primary goal is to deepen our understanding of how machines perceive and to create methods that enhance their reliability.
 
     </p>
     <p>Here is my <a href="https://dongjae0324.github.io/assets/pdf/CV_dongjae_jeon.pdf" target="_blank">CV</a>. Feel free to contact me via email if you are interested.</p>
