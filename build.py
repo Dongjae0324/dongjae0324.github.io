@@ -169,7 +169,7 @@ def get_news_entry(entry):
 
 def get_paper_entry(entry_key, entry, paper_num=None):
     fields = entry.fields
-    
+
     # Extract data
     title = fields.get('title', '')
     html_link = fields.get('html', '#')
@@ -179,6 +179,7 @@ def get_paper_entry(entry_key, entry, paper_num=None):
     award = fields.get('award', None)
     coauthor = fields.get('coauthor', '')
     pub_id = fields.get('pub_id', '')  # Get custom pub_id (e.g., "C1", "P1")
+    tldr = fields.get('tldr', '')
     
     # Generate authors HTML
     authors_html = generate_person_html(entry.persons['author'], coauthor)
@@ -197,7 +198,14 @@ def get_paper_entry(entry_key, entry, paper_num=None):
         links.append(f'<a href="{fields["video"]}" target="_blank" class="paper-link">Video</a>')
     
     links_html = ' '.join(links)
-    
+
+    # TL;DR toggle
+    tldr_btn = ''
+    tldr_html = ''
+    if tldr:
+        tldr_btn = '<button class="tldr-btn" onclick="toggleTldr(this)">TL;DR</button> '
+        tldr_html = f'<div class="tldr-content">{tldr}</div>'
+
     # Award/Venue info
     venue_info = f'<strong>{booktitle}</strong>, {year}'
     if award:
@@ -231,7 +239,8 @@ def get_paper_entry(entry_key, entry, paper_num=None):
             <div class="pub-authors">{authors_html}</div>
             <div class="pub-venue">{venue_info}</div>
             {prev_info}
-            <div class="pub-links">{links_html}</div>
+            <div class="pub-links">{tldr_btn}{links_html}</div>
+            {tldr_html}
         </div>
     </div>
     '''
@@ -741,6 +750,42 @@ def get_css():
         content: ']';
     }
     
+    /* TL;DR Toggle */
+    .tldr-btn {
+        background: none;
+        border: none;
+        padding: 0;
+        color: var(--accent);
+        font-size: 0.75rem;
+        font-family: inherit;
+        cursor: pointer;
+        margin-right: 0.5rem;
+    }
+
+    .tldr-btn::before {
+        content: '[';
+    }
+
+    .tldr-btn::after {
+        content: ']';
+    }
+
+    .tldr-btn:hover {
+        text-decoration: underline;
+        color: var(--accent-hover);
+    }
+
+    .tldr-content {
+        display: none;
+        margin-top: 0.4rem;
+        font-size: 0.8rem;
+        color: var(--muted);
+        line-height: 1.5;
+        font-style: italic;
+        border-left: 2px solid var(--border);
+        padding-left: 0.6rem;
+    }
+
     /* Research Tags - HIDDEN */
     .research-tag {
         display: none;
@@ -1050,6 +1095,13 @@ def get_index_html():
     </footer>
     
     <script>
+        // TL;DR toggle
+        function toggleTldr(btn) {{
+            const content = btn.closest('.pub-content').querySelector('.tldr-content');
+            const visible = content.style.display === 'block';
+            content.style.display = visible ? 'none' : 'block';
+        }}
+
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {{
             anchor.addEventListener('click', function (e) {{

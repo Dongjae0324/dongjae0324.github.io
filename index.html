@@ -355,6 +355,42 @@
         content: ']';
     }
     
+    /* TL;DR Toggle */
+    .tldr-btn {
+        background: none;
+        border: none;
+        padding: 0;
+        color: var(--accent);
+        font-size: 0.75rem;
+        font-family: inherit;
+        cursor: pointer;
+        margin-right: 0.5rem;
+    }
+
+    .tldr-btn::before {
+        content: '[';
+    }
+
+    .tldr-btn::after {
+        content: ']';
+    }
+
+    .tldr-btn:hover {
+        text-decoration: underline;
+        color: var(--accent-hover);
+    }
+
+    .tldr-content {
+        display: none;
+        margin-top: 0.4rem;
+        font-size: 0.8rem;
+        color: var(--muted);
+        line-height: 1.5;
+        font-style: italic;
+        border-left: 2px solid var(--border);
+        padding-left: 0.6rem;
+    }
+
     /* Research Tags - HIDDEN */
     .research-tag {
         display: none;
@@ -678,7 +714,8 @@ Ultimately, I aim to deepen our understanding of machine perception to develop A
             <div class="pub-authors">Bumjun Kim*, <strong>Dongjae Jeon*</strong>, Moongyu Jeon, <a href="https://albert-no.github.io/team/" target="_blank">Albert No</a></div>
             <div class="pub-venue"><strong>Under review</strong>, 2026</div>
             
-            <div class="pub-links"><a href="https://arxiv.org" target="_blank" class="paper-link">arXiv</a></div>
+            <div class="pub-links"><button class="tldr-btn" onclick="toggleTldr(this)">TL;DR</button> <a href="https://arxiv.org" target="_blank" class="paper-link">arXiv</a></div>
+            <div class="tldr-content">We propose DAPD, a training free parallel decoding method for diffusion LLMs that uses self attention to build a dependency graph over masked tokens and unmask an independent set in parallel to reduce joint marginal mismatch. Across LLaDA and Dream, DAPD improves the accuracy steps trade off and yields more globally dispersed, any order unmasking than marginal confidence baselines.</div>
         </div>
     </div>
     
@@ -693,7 +730,8 @@ Ultimately, I aim to deepen our understanding of machine perception to develop A
             <div class="pub-authors">Yoonjun Cho*, <strong>Dongjae Jeon*</strong>, Soeun Kim, <a href="https://albert-no.github.io/team/" target="_blank">Albert No</a></div>
             <div class="pub-venue"><strong>ICML (TTODLer-FM workshop)</strong>, 2025 <span class="award-highlight">(Oral)</span></div>
             
-            <div class="pub-links"><a href="https://www.arxiv.org/abs/2602.02001" target="_blank" class="paper-link">arXiv</a> <a href="https://dongjae0324.github.io/assets/pdf/icml25_srr_slide.pdf" target="_blank" class="paper-link">Slides</a></div>
+            <div class="pub-links"><button class="tldr-btn" onclick="toggleTldr(this)">TL;DR</button> <a href="https://www.arxiv.org/abs/2602.02001" target="_blank" class="paper-link">arXiv</a> <a href="https://dongjae0324.github.io/assets/pdf/icml25_srr_slide.pdf" target="_blank" class="paper-link">Slides</a></div>
+            <div class="tldr-content">This paper proposes Structured Residual Reconstruction (SRR), which preserves the top singular subspace of activation scaled weights before quantization and uses the remaining rank budget to reconstruct quantization error, guided by a theory based criterion for choosing the preserved rank. It improves post training quantization perplexity and boosts 2 bit QPEFT performance, reporting a 5.9 point average gain on GLUE.</div>
         </div>
     </div>
     
@@ -711,7 +749,8 @@ Ultimately, I aim to deepen our understanding of machine perception to develop A
             <div class="pub-authors">Bumjun Kim*, <strong>Dongjae Jeon*</strong>, Dueun Kim*, <a href="https://cryinginitial.github.io" target="_blank">Wonje Jeung</a>, <a href="https://albert-no.github.io/team/" target="_blank">Albert No</a></div>
             <div class="pub-venue"><strong>ICLR</strong>, 2026</div>
             
-            <div class="pub-links"><a href="https://arxiv.org/abs/2510.03680" target="_blank" class="paper-link">arXiv</a> <a href="https://ai-isl.github.io/rainbow-padding" target="_blank" class="paper-link">Project</a></div>
+            <div class="pub-links"><button class="tldr-btn" onclick="toggleTldr(this)">TL;DR</button> <a href="https://arxiv.org/abs/2510.03680" target="_blank" class="paper-link">arXiv</a> <a href="https://ai-isl.github.io/rainbow-padding" target="_blank" class="paper-link">Project</a></div>
+            <div class="tldr-content">This paper identifies overflow in instruction tuned diffusion LLMs, where increasing the max length paradoxically causes early termination or repetitive outputs because serves as both padding and the stop token. It proposes Rainbow Padding, which replaces repeated padding with a small cyclic set of distinct padding tokens, restoring length robustness and improving reasoning and coding performance with minimal LoRA fine tuning.</div>
         </div>
     </div>
     
@@ -726,7 +765,8 @@ Ultimately, I aim to deepen our understanding of machine perception to develop A
             <div class="pub-authors"><a href="https://cryinginitial.github.io" target="_blank">Wonje Jeung*</a>, Sangyeon Yoon*, Yoonjun Cho, <strong>Dongjae Jeon</strong>, Sangwoo Shin, Hyesoo Hong, <a href="https://albert-no.github.io/team/" target="_blank">Albert No</a></div>
             <div class="pub-venue"><strong>ICLR</strong>, 2026</div>
             
-            <div class="pub-links"><a href="https://www.arxiv.org/abs/2509.23286" target="_blank" class="paper-link">arXiv</a></div>
+            <div class="pub-links"><button class="tldr-btn" onclick="toggleTldr(this)">TL;DR</button> <a href="https://www.arxiv.org/abs/2509.23286" target="_blank" class="paper-link">arXiv</a></div>
+            <div class="tldr-content">This paper proposes A2D, a token-level safety alignment method for diffusion language models that triggers an \texttt{[EOS]} refusal as soon as harmful content arises, making safety robust to any decoding order and any step. On safety benchmarks, A2D drives DIJA prefilling attack success rates from over 80% to near-zero and enables early rejection via thresholded \texttt{[EOS]} probabilities for up to 19.3$\times$ faster safe termination.</div>
         </div>
     </div>
     
@@ -741,7 +781,8 @@ Ultimately, I aim to deepen our understanding of machine perception to develop A
             <div class="pub-authors"><strong>Dongjae Jeon*</strong>, <a href="https://cryinginitial.github.io" target="_blank">Wonje Jeung*</a>, <a href="https://ta3h30nk1m.github.io" target="_blank">Taeheon Kim</a>, <a href="https://albert-no.github.io/team/" target="_blank">Albert No</a>, <a href="https://ppolon.github.io" target="_blank">Jonghyun Choi</a></div>
             <div class="pub-venue"><strong>AAAI</strong>, 2026</div>
             
-            <div class="pub-links"><a href="https://arxiv.org/abs/2405.17878" target="_blank" class="paper-link">arXiv</a></div>
+            <div class="pub-links"><button class="tldr-btn" onclick="toggleTldr(this)">TL;DR</button> <a href="https://arxiv.org/abs/2405.17878" target="_blank" class="paper-link">arXiv</a></div>
+            <div class="tldr-content">This paper introduces the Information Difference Index (IDI), a white box information theoretic metric that quantifies residual forget set information retained in intermediate representations after unlearning, beyond what end task accuracy reveals. Across datasets and architectures, IDI exposes cases where black box evaluations overestimate unlearning and provides a more reliable measure of strong unlearning.</div>
         </div>
     </div>
     
@@ -756,7 +797,8 @@ Ultimately, I aim to deepen our understanding of machine perception to develop A
             <div class="pub-authors">Moongyu Jeon, Sangwoo Shin, <strong>Dongjae Jeon</strong>, <a href="https://albert-no.github.io/team/" target="_blank">Albert No</a></div>
             <div class="pub-venue"><strong>NeurIPS</strong>, 2025</div>
             
-            <div class="pub-links"><a href="https://arxiv.org/abs/2510.24088" target="_blank" class="paper-link">arXiv</a></div>
+            <div class="pub-links"><button class="tldr-btn" onclick="toggleTldr(this)">TL;DR</button> <a href="https://arxiv.org/abs/2510.24088" target="_blank" class="paper-link">arXiv</a></div>
+            <div class="tldr-content">This paper develops an information theoretic foundation for discrete diffusion, deriving I MDSE and I MDCE identities that show common score matching losses (DSE and DCE) yield tight, principled log likelihood estimators rather than loose variational bounds. It also provides practical estimators, including a time free likelihood formula, conditional likelihood for prompt response tasks, and a coupled Monte Carlo likelihood ratio estimator, with experiments validating accuracy and variance stability.</div>
         </div>
     </div>
     
@@ -771,7 +813,8 @@ Ultimately, I aim to deepen our understanding of machine perception to develop A
             <div class="pub-authors">Yoonjun Cho, Soeun Kim, <strong>Dongjae Jeon</strong>, Kyelim Lee, Beomsoo Lee, <a href="https://albert-no.github.io/team/" target="_blank">Albert No</a></div>
             <div class="pub-venue"><strong>ACL Findings</strong>, 2025</div>
             
-            <div class="pub-links"><a href="https://arxiv.org/abs/2506.02077" target="_blank" class="paper-link">arXiv</a></div>
+            <div class="pub-links"><button class="tldr-btn" onclick="toggleTldr(this)">TL;DR</button> <a href="https://arxiv.org/abs/2506.02077" target="_blank" class="paper-link">arXiv</a></div>
+            <div class="tldr-content">This paper shows that joint quantization plus low rank decomposition quality depends strongly on how the low rank term is initialized, because initialization fixes the roles each component keeps during optimization; it proposes Outlier Driven Low Rank Initialization (ODLRI) that assigns activation sensitive outlier weights to the low rank part so quantization handles the remaining weights more stably. Experiments on Llama2, Llama3, and Mistral show consistent gains in activation aware error, quantization scale, perplexity, and zero shot accuracy in extreme low bit settings.</div>
         </div>
     </div>
     
@@ -786,7 +829,8 @@ Ultimately, I aim to deepen our understanding of machine perception to develop A
             <div class="pub-authors"><strong>Dongjae Jeon*</strong>, Dueun Kim*, <a href="https://albert-no.github.io/team/" target="_blank">Albert No</a></div>
             <div class="pub-venue"><strong>ICML</strong>, 2025 <span class="award-highlight">(Spotlight)</span></div>
             <div class="prev-venue">Previously at AAAI (PPAI workshop), 2025 <span class="award-highlight">(Oral)</span></div>
-            <div class="pub-links"><a href="https://arxiv.org/abs/2412.04140" target="_blank" class="paper-link">arXiv</a> <a href="https://github.com/Dongjae0324/sharpness_memorization_diffusion" target="_blank" class="paper-link">Code</a> <a href="https://dongjae0324.github.io/assets/pdf/icml25_memorization_slide.pdf" target="_blank" class="paper-link">Slides</a></div>
+            <div class="pub-links"><button class="tldr-btn" onclick="toggleTldr(this)">TL;DR</button> <a href="https://arxiv.org/abs/2412.04140" target="_blank" class="paper-link">arXiv</a> <a href="https://github.com/Dongjae0324/sharpness_memorization_diffusion" target="_blank" class="paper-link">Code</a> <a href="https://dongjae0324.github.io/assets/pdf/icml25_memorization_slide.pdf" target="_blank" class="paper-link">Slides</a></div>
+            <div class="tldr-content">This paper links diffusion model memorization to high sharpness in the learned log-density landscape and proposes a sharpness-based metric that detects memorization from the earliest sampling steps; it then introduces SAIL, an inference-time initial-noise optimization that steers sampling toward smoother regions to reduce memorization without retraining or prompt edits.</div>
         </div>
     </div>
     
@@ -801,7 +845,8 @@ Ultimately, I aim to deepen our understanding of machine perception to develop A
             <div class="pub-authors"><a href="https://cryinginitial.github.io" target="_blank">Wonje Jeung</a>, <strong>Dongjae Jeon</strong>, Ashkan Yousefpour, <a href="https://ppolon.github.io" target="_blank">Jonghyun Choi</a></div>
             <div class="pub-venue"><strong>ACL Findings</strong>, 2025</div>
             <div class="prev-venue">Previously at NeurIPS (SOLAR workshop), 2024</div>
-            <div class="pub-links"><a href="https://arxiv.org/abs/2410.17519" target="_blank" class="paper-link">arXiv</a></div>
+            <div class="pub-links"><button class="tldr-btn" onclick="toggleTldr(this)">TL;DR</button> <a href="https://arxiv.org/abs/2410.17519" target="_blank" class="paper-link">arXiv</a></div>
+            <div class="tldr-content">This paper introduces LTF TEST, a long form fairness benchmark that probes demographic bias in essay style generations across 14 topics and 10 demographic axes. Evaluations on multiple LLMs show that bias remains and can surface more clearly in long text than in short form fairness tests, motivating long form bias auditing as a complementary standard.</div>
         </div>
     </div>
     
@@ -882,6 +927,13 @@ Ultimately, I aim to deepen our understanding of machine perception to develop A
     </footer>
     
     <script>
+        // TL;DR toggle
+        function toggleTldr(btn) {
+            const content = btn.closest('.pub-content').querySelector('.tldr-content');
+            const visible = content.style.display === 'block';
+            content.style.display = visible ? 'none' : 'block';
+        }
+
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
