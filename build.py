@@ -31,7 +31,7 @@ where I conduct research in the <a href="https://albert-no.github.io/" target="_
 under the supervision of Professor <a href="https://albert-no.github.io/" target="_blank">Albert No</a>.
 
 <p style="margin-top: 1em; line-height: 1.5;">
-  I study <strong>generative modeling</strong>, focusing on improving models by analyzing their underlying mechanisms. My recent work includes addressing core challenges in diffusion LLMs (<a href="#pub-C4" class="cite-link">[C4]</a><a href="#pub-C6" class="cite-link">[C6]</a><a href="#pub-P2" class="cite-link">[P2]</a>), probabilistic approach for image diffusion (<a href="#pub-C2" class="cite-link">[C2]</a>), and enhancing model efficiency (<a href="#pub-C3" class="cite-link">[C3]</a><a href="#pub-P1" class="cite-link">[P1]</a>).
+  I research <strong>generative modeling</strong>, focusing on improving models by analyzing their underlying mechanisms. My recent work includes addressing core challenges in diffusion LLMs (<a href="#pub-C4" class="cite-link">[C4]</a><a href="#pub-C6" class="cite-link">[C6]</a><a href="#pub-P2" class="cite-link">[P2]</a>), analyzing diffusion-based image generation (<a href="#pub-C2" class="cite-link">[C2]</a>), and enhancing model efficiency via quantization (<a href="#pub-C3" class="cite-link">[C3]</a><a href="#pub-P1" class="cite-link">[P1]</a>).
 </p>
 
 <p style="margin-top: 1em;">Quick overview:</p>
@@ -42,7 +42,9 @@ under the supervision of Professor <a href="https://albert-no.github.io/" target
 </ul>
 
 <p style="margin-top: 1em;">I also bring experience in <em>Continual Learning</em> for computer vision, specifically in Object Detection (See Awards).
-Ultimately, I aim to deepen our understanding of machine perception to develop AI that empowers societal good.</p>
+
+Ultimately, I aim to deepen our understanding of machine perception and translate those insights into reliable generative systems that are useful in the real world.
+</p>
 """
     
     return {
