@@ -30,13 +30,8 @@ I am a first-year Master's student in Computer Science at <a href="https://www.y
 where I conduct research in the <a href="https://albert-no.github.io/" target="_blank">Artificial Intelligence and Information Systems Lab</a> 
 under the supervision of Professor <a href="https://albert-no.github.io/" target="_blank">Albert No</a>.
 
-<p style="margin-top: 1em;">
-  I am broadly interested in <strong>generative modeling</strong> and in improving models by analyzing their underlying mechanisms.
-  My recent work includes language generation with discrete diffusion
-  (<a href="#pub-C4" class="cite-link">[C4]</a><a href="#pub-C6" class="cite-link">[C6]</a><a href="#pub-P2" class="cite-link">[P2]</a>)
-  as well as probabilistic approaches for image diffusion
-  (<a href="#pub-C2" class="cite-link">[C2]</a>).
-  I also work on model efficiency (<a href="#pub-C3" class="cite-link">[C3]</a><a href="#pub-P1" class="cite-link">[P1]</a>).
+<p style="margin-top: 1em; line-height: 1.5;">
+  I study <strong>generative modeling</strong>, focusing on improving models by analyzing their underlying mechanisms. My recent work includes addressing core challenges in diffusion LLMs (<a href="#pub-C4" class="cite-link">[C4]</a><a href="#pub-C6" class="cite-link">[C6]</a><a href="#pub-P2" class="cite-link">[P2]</a>), probabilistic analysis for image diffusion (<a href="#pub-C2" class="cite-link">[C2]</a>), and enhancing model efficiency (<a href="#pub-C3" class="cite-link">[C3]</a><a href="#pub-P1" class="cite-link">[P1]</a>).
 </p>
 
 <p style="margin-top: 1em;">Quick overview:</p>
