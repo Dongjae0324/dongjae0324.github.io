@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dongjae Jeon</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+    
+    :root {
+        --primary: #222;
+        --accent: #0066cc;
+        --accent-hover: #004499;
+        --muted: #555;
+        --light-bg: #f5f5f5;
+        --border: #ddd;
+        --white: #ffffff;
+    }
+    
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        font-size: 14px;
+        line-height: 1.5;
+        color: var(--primary);
+        background: var(--white);
+        min-height: 100vh;
+    }
+    
+    a {
+        color: var(--accent);
+        text-decoration: none;
+        transition: color 0.2s ease;
+    }
+    
+    a:hover {
+        color: var(--accent-hover);
+    }
+    
+    /* Navigation */
+    .navbar {
+        background: var(--white);
+        padding: 0.75rem 0;
+        border-bottom: 1px solid var(--border);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+    
+    .nav-container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .nav-brand {
+        font-weight: 600;
+        font-size: 1rem;
+        color: var(--primary);
+    }
+    
+    .nav-links {
+        display: flex;
+        gap: 1.25rem;
+    }
+    
+    .nav-links a {
+        color: var(--muted);
+        font-size: 0.85rem;
+    }
+    
+    .nav-links a:hover,
+    .nav-links a.active {
+        color: var(--accent);
+    }
+    
+    /* Main Container */
+    .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 1.5rem 2rem;
+    }
+    
+    /* Profile Section */
+    .profile-section {
+        margin-bottom: 1.5rem;
+    }
+    
+    .profile-header {
+        display: grid;
+        grid-template-columns: 180px 1fr;
+        gap: 2rem;
+        margin-bottom: 1rem;
+        align-items: start;
+    }
+    
+    .profile-image {
+        position: relative;
+    }
+    
+    .profile-image img {
+        width: 180px;
+        height: auto;
+        border: 1px solid var(--border);
+    }
+    
+    .profile-info h1 {
+        font-size: 2rem;
+        font-weight: 500;
+        margin-bottom: 0.2rem;
+        color: var(--primary);
+    }
+    
+    .profile-info .title {
+        font-size: 1rem;
+        color: var(--muted);
+        margin-bottom: 0.75rem;
+        line-height: 1.4;
+    }
+    
+    .social-links {
+        display: flex;
+        gap: 0.75rem;
+        flex-wrap: wrap;
+        font-size: 0.8rem;
+    }
+    
+    .social-link {
+        color: var(--accent);
+    }
+    
+    .social-link:hover {
+        text-decoration: underline;
+    }
+    
+    .social-link i {
+        margin-right: 0.25rem;
+    }
+    
+    /* Bio Section */
+    .bio-section {
+        color: var(--primary);
+        font-size: 0.875rem;
+        line-height: 1.6;
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 1px solid var(--border);
+    }
+    
+    .bio-section p {
+        margin-bottom: 0.5rem;
+    }
+    
+    .bio-section ul {
+        margin: 0.4rem 0 0.5rem 0;
+        padding-left: 1.1rem;
+    }
+    
+    .bio-section li {
+        margin-bottom: 0.25rem;
+    }
+    
+    /* Section Headers */
+    .section {
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+    }
+    
+    .section-header {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--primary);
+        margin-bottom: 1.5rem;
+        padding-bottom: 0.4rem;
+        border-bottom: 1px solid var(--border);
+    }
+    
+    /* News Section */
+    .news-list {
+        font-size: 0.85rem;
+        max-height: 150px;
+        overflow-y: auto;
+        border: 1px solid var(--border);
+        border-radius: 4px;
+        padding: 1rem;
+    }
+    
+    .news-list::-webkit-scrollbar {
+        width: 6px;
+    }
+    
+    .news-list::-webkit-scrollbar-track {
+        background: var(--light-bg);
+        border-radius: 3px;
+    }
+    
+    .news-list::-webkit-scrollbar-thumb {
+        background: #999;
+        border-radius: 3px;
+    }
+    
+    .news-list::-webkit-scrollbar-thumb:hover {
+        background: #666;
+    }
+    
+    .news-item {
+        display: grid;
+        grid-template-columns: 75px 1fr;
+        gap: 0.5rem;
+        padding: 0.1rem 0;
+    }
+    
+    .news-date {
+        font-weight: 600;
+        color: var(--primary);
+        font-size: 0.8rem;
+    }
+    
+    .news-content {
+        color: var(--primary);
+    }
+    
+    /* Publication Items */
+    .publication-item,
+    .talk-item,
+    .award-item {
+        display: flex;
+        gap: 20px;
+        padding: 1rem 0;
+        border-bottom: 1px solid var(--border);
+    }
+    
+    .publication-item:last-child,
+    .talk-item:last-child,
+    .award-item:last-child {
+        border-bottom: none;
+    }
+
+    .pub-image img {
+        width: 180px;
+        height: auto;
+        border: 1px solid #ccc;
+    }
+
+    .talk-image img,
+    .award-image img {
+        width: 180px;
+        height: auto;
+        border: 1px solid #ccc;
+    }
+    
+    .pub-title {
+        margin-bottom: 0.25rem;
+    }
+    
+    .pub-num {
+        color: var(--muted);
+        font-size: 0.8rem;
+        font-weight: 600;
+    }
+    
+    .pub-title a {
+        font-weight: 500;
+        font-size: 0.9rem;
+        color: var(--accent);
+    }
+    
+    .pub-title a:hover {
+        text-decoration: underline;
+    }
+    
+    /* Citation links in bio */
+    .cite-link {
+        color: var(--accent);
+        font-size: 0.8rem;
+        margin-left: 0.1rem;
+    }
+    
+    .cite-link:hover {
+        text-decoration: underline;
+    }
+    
+    .publication-item {
+        scroll-margin-top: 80px;
+    }
+    
+    .pub-authors {
+        color: var(--muted);
+        font-size: 0.8rem;
+        margin-bottom: 0.15rem;
+    }
+    
+    .pub-authors a {
+        color: var(--muted);
+    }
+    
+    .pub-authors a:hover {
+        color: var(--accent);
+    }
+    
+    .pub-venue {
+        font-size: 0.8rem;
+        color: var(--muted);
+        margin-bottom: 0.15rem;
+        font-weight: 600;
+    }
+    
+    .prev-venue {
+        font-size: 0.75rem;
+        color: var(--muted);
+        margin-bottom: 0.15rem;
+    }
+    
+    .award-highlight {
+        color: #c00;
+        font-weight: 600;
+    }
+    
+    .pub-links {
+        margin-top: 0.25rem;
+        font-size: 0.75rem;
+    }
+    
+    .paper-link {
+        color: var(--accent);
+        margin-right: 0.5rem;
+    }
+    
+    .paper-link:hover {
+        text-decoration: underline;
+    }
+    
+    .paper-link::before {
+        content: '[';
+    }
+    
+    .paper-link::after {
+        content: ']';
+    }
+    
+    /* Research Tags - HIDDEN */
+    .research-tag {
+        display: none;
+    }
+    
+    /* Talk & Award specific */
+    .talk-title {
+        font-weight: 500;
+        font-size: 0.9rem;
+        color: var(--primary);
+        margin-bottom: 0.25rem;
+    }
+    
+    .award-title a {
+        font-weight: 500;
+        font-size: 0.9rem;
+        color: var(--accent);
+        margin-bottom: 0.15rem;
+    }
+    
+    .award-title a:hover {
+        text-decoration: underline;
+    }
+    
+    .talk-venue,
+    .award-venue {
+        color: var(--muted);
+        font-size: 0.8rem;
+        margin-bottom: 0.15rem;
+    }
+    
+    .talk-links,
+    .award-links {
+        margin-top: 0.25rem;
+        font-size: 0.75rem;
+    }
+    
+    .award-rank {
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: #c00;
+        margin-bottom: 0.15rem;
+    }
+    
+    .talk-content,
+    .award-content {
+        flex: 1;
+    }
+    
+    /* Blog Section */
+    .blog-item {
+        padding: 2rem 0;
+        border-bottom: 1px solid var(--border);
+        display: flex;
+        gap: 1.5rem;
+    }
+    
+    .blog-item:last-child {
+        border-bottom: none;
+    }
+    
+    .blog-meta {
+        flex-shrink: 0;
+        width: 80px;
+    }
+    
+    .blog-date {
+        font-weight: 600;
+        color: var(--muted);
+        font-size: 0.8rem;
+    }
+    
+    .blog-content {
+        flex: 1;
+    }
+    
+    .blog-title {
+        font-size: 1rem;
+        font-weight: 600;
+        margin-bottom: 0.75rem;
+        color: var(--primary);
+    }
+    
+    .blog-title a {
+        color: var(--accent);
+    }
+    
+    .blog-title a:hover {
+        text-decoration: underline;
+    }
+    
+    .blog-excerpt {
+        font-size: 0.9rem;
+        color: var(--muted);
+        margin-bottom: 0.75rem;
+        line-height: 1.6;
+    }
+    
+    .blog-link {
+        font-size: 0.9rem;
+        color: var(--accent);
+    }
+    
+    .blog-link:hover {
+        text-decoration: underline;
+    }
+    
+    /* Footer */
+    .footer {
+        text-align: center;
+        padding: 1rem;
+        color: var(--muted);
+        font-size: 0.8rem;
+        border-top: 1px solid var(--border);
+        margin-top: 1.5rem;
+    }
+    
+    .footer a {
+        color: var(--muted);
+    }
+    
+    .footer a:hover {
+        color: var(--accent);
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+        .profile-header {
+            grid-template-columns: 1fr;
+            text-align: center;
+            gap: 1rem;
+        }
+        
+        .profile-image {
+            display: flex;
+            justify-content: center;
+        }
+        
+        .profile-image img {
+            width: 140px;
+        }
+        
+        .profile-info h1 {
+            font-size: 1.8rem;
+        }
+        
+        .social-links {
+            justify-content: center;
+        }
+        
+        .bio-section {
+            text-align: left;
+        }
+        
+        .publication-item,
+        .talk-item,
+        .award-item {
+            flex-direction: column;
+        }
+        
+        .pub-image,
+        .talk-image,
+        .award-image {
+            display: none;
+        }
+        
+        .pub-image img,
+        .talk-image img,
+        .award-image img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+        }
+        
+        .news-item {
+            grid-template-columns: 1fr;
+            gap: 0.25rem;
+        }
+        
+        .nav-links {
+            gap: 1rem;
+        }
+    }
+    
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-brand">Dongjae Jeon</a>
+            <div class="nav-links">
+                <a href="#about" class="active">About</a>
+                <a href="#publications">Publications</a>
+                <a href="#awards">Awards</a>
+                <a href="#blog">Blog</a>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <!-- Profile Section -->
+        <section id="about" class="profile-section">
+            <div class="profile-header">
+                <div class="profile-image">
+                    <img src="assets/img/profile2.jpg" alt="Dongjae Jeon">
+                </div>
+                <div class="profile-info">
+                    <h1>Dongjae Jeon</h1>
+                    <p class="title"><strong>Master's Student</strong><br>Yonsei University</p>
+                    <div class="social-links">
+                        <a href="https://dongjae0324.github.io/assets/pdf/CV_dongjae_jeon.pdf" target="_blank" class="social-link">
+                            <i class="fa-solid fa-file-pdf"></i> CV
+                        </a>
+                        <a href="mailto:dongjae0324@yonsei.ac.kr" class="social-link">
+                            <i class="fa-solid fa-envelope"></i> Email
+                        </a>
+                        <a href="https://scholar.google.com/citations?user=SaaN_bAAAAAJ&hl=en" target="_blank" class="social-link">
+                            <i class="fa-solid fa-graduation-cap"></i> Scholar
+                        </a>
+                        <a href="https://github.com/Dongjae0324" target="_blank" class="social-link">
+                            <i class="fa-brands fa-github"></i> GitHub
+                        </a>
+                        <a href="https://www.linkedin.com/in/dongjae-jeon-a74526255" target="_blank" class="social-link">
+                            <i class="fa-brands fa-linkedin"></i> LinkedIn
+                        </a>
+                    </div>
+                </div>
+                    </div>
+            <div class="bio-section">
+                
+I am a first-year Master's student in Computer Science at <a href="https://www.yonsei.ac.kr/en_sc/" target="_blank">Yonsei University</a>, 
+where I conduct research in the <a href="https://albert-no.github.io/" target="_blank">Artificial Intelligence and Information Systems Lab</a> 
+under the supervision of Professor <a href="https://albert-no.github.io/" target="_blank">Albert No</a>.
+
+<p style="margin-top: 1em;">
+  I am broadly interested in <strong>generative modeling</strong> and in improving models by analyzing their underlying mechanisms.
+  My recent work includes language generation with discrete diffusion
+  (<a href="#pub-C4" class="cite-link">[C4]</a><a href="#pub-C6" class="cite-link">[C6]</a><a href="#pub-P2" class="cite-link">[P2]</a>)
+  as well as probabilistic approaches for image diffusion
+  (<a href="#pub-C2" class="cite-link">[C2]</a>).
+  I also work on model efficiency (<a href="#pub-C3" class="cite-link">[C3]</a><a href="#pub-P1" class="cite-link">[P1]</a>).
+</p>
+
+<p style="margin-top: 1em;">Quick overview:</p>
+<ul style="margin-top: 0.5em; padding-left: 1.2em;">
+    <li><span style="font-weight: 600;">Safety &amp; Privacy:</span> <a href="#pub-C1" class="cite-link">[C1]</a> <a href="#pub-C2" class="cite-link">[C2]</a> <a href="#pub-C5" class="cite-link">[C5]</a> <a href="#pub-C6" class="cite-link">[C6]</a></li>
+    <li><span style="font-weight: 600;">Methodologies:</span> <a href="#pub-C4" class="cite-link">[C4]</a> <a href="#pub-C7" class="cite-link">[C7]</a> <a href="#pub-P2" class="cite-link">[P2]</a></li>
+    <li><span style="font-weight: 600;">Efficient AI:</span> <a href="#pub-P1" class="cite-link">[P1]</a> <a href="#pub-C3" class="cite-link">[C3]</a></li>
+</ul>
+
+<p style="margin-top: 1em;">I also bring experience in <em>Continual Learning</em> for computer vision, specifically in Object Detection (See Awards).
+Ultimately, I aim to deepen our understanding of machine perception to develop AI that empowers societal good.</p>
+
+                </div>
+        </section>
+        
+        <!-- News Section -->
+        <section class="section">
+            <h2 class="section-header">News</h2>
+            <div class="news-list">
+    <div class="news-item">
+        <span class="news-date">Jan 2026</span>
+        <span class="news-content">Two papers on Diffusion Language Model (<span style="color:#2667ff; font-weight: normal;">Rainbow Padding</span>, <span style="color:#2667ff; font-weight: normal;">A2D</span>) are accepted to ICLR 2026. See you in Brazil 🇧🇷!</span>
+    </div>
+    
+    <div class="news-item">
+        <span class="news-date">Nov 2025</span>
+        <span class="news-content">A paper on Machine Unlearning (<span style="color:#2667ff; font-weight: normal;">IDI</span>) is accepted to AAAI 2026!</span>
+    </div>
+    
+    <div class="news-item">
+        <span class="news-date">Oct 2025</span>
+        <span class="news-content">Two preprints are now available: one on Diffusion Language Model training (<span style="color:#2667ff; font-weight: normal;">Rainbow Padding</span>) and Safety (<span style="color:#2667ff; font-weight: normal;">A2D</span>).</span>
+    </div>
+    
+    <div class="news-item">
+        <span class="news-date">Sep 2025</span>
+        <span class="news-content">A paper on Diffusion Language Model is accepted to NeurIPS 2025. Kudos to my co-authors! See you in San Diego 🇺🇸!</span>
+    </div>
+    
+    <div class="news-item">
+        <span class="news-date">Aug 2025</span>
+        <span class="news-content">Official code for ICML 2025 paper is uploaded! Checkout!</span>
+    </div>
+    
+    <div class="news-item">
+        <span class="news-date">Aug 2025</span>
+        <span class="news-content">I gave a talk at <a href="https://mlsys.yonsei.ac.kr/" target="_blank" style="color:#2667ff;">Yonsei MLSys student group</a> on Diffusion models &amp; their privacy issues.</span>
+    </div>
+    
+    <div class="news-item">
+        <span class="news-date">Jun 2025</span>
+        <span class="news-content">A paper on Quantization is accepted to ICML 2025 (TTODLer-FM workshop) as <span style="color:#2667ff; font-weight: normal;">Oral</span>!</span>
+    </div>
+    
+    <div class="news-item">
+        <span class="news-date">May 2025</span>
+        <span class="news-content">Two Papers (<span style="color:#2667ff; font-weight: normal;">ODLRI</span> and <span style="color:#2667ff; font-weight: normal;">Regard-FT</span>) are accepted to ACL 2025! See you in Austria 🇦🇹!</span>
+    </div>
+    </div>
+        </section>
+        
+        <!-- Selected Publications -->
+        <section id="publications" class="section">
+            <h2 class="section-header">Publications</h2>
+            <p style="color: var(--muted); margin-bottom: 1.5rem; font-size: 0.95rem;">
+                (*) denotes equal contribution
+            </p>
+            
+            <h3 style="font-size: 1.1rem; color: var(--muted); margin-bottom: 1rem; font-weight: 600;">Preprints</h3>
+            
+    <div class="publication-item" id="pub-P2">
+        <div class="pub-image">
+            <img src="https://dongjae0324.github.io/assets/img/publications/dapd.gif" alt="Dependency-Aware Parallel Decoding via Attention for Diffusion LLMs">
+        </div>
+        <div class="pub-content">
+            <div class="pub-title">
+                <a href="https://arxiv.org" target="_blank">Dependency-Aware Parallel Decoding via Attention for Diffusion LLMs</a> <span class="pub-num">[P2]</span> 
+            </div>
+            <div class="pub-authors">Bumjun Kim*, <strong>Dongjae Jeon*</strong>, Moongyu Jeon, <a href="https://albert-no.github.io/team/" target="_blank">Albert No</a></div>
+            <div class="pub-venue"><strong>Under review</strong>, 2026</div>
+            
+            <div class="pub-links"><a href="https://arxiv.org" target="_blank" class="paper-link">arXiv</a></div>
+        </div>
+    </div>
+    
+    <div class="publication-item" id="pub-P1">
+        <div class="pub-image">
+            <img src="https://dongjae0324.github.io/assets/img/publications/srr.jpg" alt="Preserve-Then-Quantize: Balancing Rank Budgets for Quantization Error Reconstruction in LLMs">
+        </div>
+        <div class="pub-content">
+            <div class="pub-title">
+                <a href="https://www.arxiv.org/abs/2602.02001" target="_blank">Preserve-Then-Quantize: Balancing Rank Budgets for Quantization Error Reconstruction in LLMs</a> <span class="pub-num">[P1]</span> 
+            </div>
+            <div class="pub-authors">Yoonjun Cho*, <strong>Dongjae Jeon*</strong>, Soeun Kim, <a href="https://albert-no.github.io/team/" target="_blank">Albert No</a></div>
+            <div class="pub-venue"><strong>ICML (TTODLer-FM workshop)</strong>, 2025 <span class="award-highlight">(Oral)</span></div>
+            
+            <div class="pub-links"><a href="https://www.arxiv.org/abs/2602.02001" target="_blank" class="paper-link">arXiv</a> <a href="https://dongjae0324.github.io/assets/pdf/icml25_srr_slide.pdf" target="_blank" class="paper-link">Slides</a></div>
+        </div>
+    </div>
+    
+            
+            <h3 style="font-size: 1.1rem; color: var(--muted); margin: 2rem 0 1rem; font-weight: 600;">Peer-Reviewed</h3>
+                        
+    <div class="publication-item" id="pub-C7">
+        <div class="pub-image">
+            <img src="https://dongjae0324.github.io/assets/img/publications/rainbow.jpg" alt="Rainbow Padding: Mitigating Early Termination In Instruction-tuned Diffusion LLMs">
+        </div>
+        <div class="pub-content">
+            <div class="pub-title">
+                <a href="https://arxiv.org/abs/2510.03680" target="_blank">Rainbow Padding: Mitigating Early Termination In Instruction-tuned Diffusion LLMs</a> <span class="pub-num">[C7]</span> 
+            </div>
+            <div class="pub-authors">Bumjun Kim*, <strong>Dongjae Jeon*</strong>, Dueun Kim*, <a href="https://cryinginitial.github.io" target="_blank">Wonje Jeung</a>, <a href="https://albert-no.github.io/team/" target="_blank">Albert No</a></div>
+            <div class="pub-venue"><strong>ICLR</strong>, 2026</div>
+            
+            <div class="pub-links"><a href="https://arxiv.org/abs/2510.03680" target="_blank" class="paper-link">arXiv</a> <a href="https://ai-isl.github.io/rainbow-padding" target="_blank" class="paper-link">Project</a></div>
+        </div>
+    </div>
+    
+    <div class="publication-item" id="pub-C6">
+        <div class="pub-image">
+            <img src="https://dongjae0324.github.io/assets/img/publications/a2d.jpg" alt="A2D: Any-Order, Any-Step Safety Alignment for Diffusion Language Models">
+        </div>
+        <div class="pub-content">
+            <div class="pub-title">
+                <a href="https://www.arxiv.org/abs/2509.23286" target="_blank">A2D: Any-Order, Any-Step Safety Alignment for Diffusion Language Models</a> <span class="pub-num">[C6]</span> 
+            </div>
+            <div class="pub-authors"><a href="https://cryinginitial.github.io" target="_blank">Wonje Jeung*</a>, Sangyeon Yoon*, Yoonjun Cho, <strong>Dongjae Jeon</strong>, Sangwoo Shin, Hyesoo Hong, <a href="https://albert-no.github.io/team/" target="_blank">Albert No</a></div>
+            <div class="pub-venue"><strong>ICLR</strong>, 2026</div>
+            
+            <div class="pub-links"><a href="https://www.arxiv.org/abs/2509.23286" target="_blank" class="paper-link">arXiv</a></div>
+        </div>
+    </div>
+    
+    <div class="publication-item" id="pub-C5">
+        <div class="pub-image">
+            <img src="https://dongjae0324.github.io/assets/img/publications/idi2.jpg" alt="An Information Theoretic Metric for Evaluating Unlearning Models">
+        </div>
+        <div class="pub-content">
+            <div class="pub-title">
+                <a href="https://arxiv.org/abs/2405.17878" target="_blank">An Information Theoretic Metric for Evaluating Unlearning Models</a> <span class="pub-num">[C5]</span> 
+            </div>
+            <div class="pub-authors"><strong>Dongjae Jeon*</strong>, <a href="https://cryinginitial.github.io" target="_blank">Wonje Jeung*</a>, <a href="https://ta3h30nk1m.github.io" target="_blank">Taeheon Kim</a>, <a href="https://albert-no.github.io/team/" target="_blank">Albert No</a>, <a href="https://ppolon.github.io" target="_blank">Jonghyun Choi</a></div>
+            <div class="pub-venue"><strong>AAAI</strong>, 2026</div>
+            
+            <div class="pub-links"><a href="https://arxiv.org/abs/2405.17878" target="_blank" class="paper-link">arXiv</a></div>
+        </div>
+    </div>
+    
+    <div class="publication-item" id="pub-C4">
+        <div class="pub-image">
+            <img src="https://dongjae0324.github.io/assets/img/publications/info_dd.png" alt="Information-Theoretic Discrete Diffusion">
+        </div>
+        <div class="pub-content">
+            <div class="pub-title">
+                <a href="https://arxiv.org/abs/2510.24088" target="_blank">Information-Theoretic Discrete Diffusion</a> <span class="pub-num">[C4]</span> 
+            </div>
+            <div class="pub-authors">Moongyu Jeon, Sangwoo Shin, <strong>Dongjae Jeon</strong>, <a href="https://albert-no.github.io/team/" target="_blank">Albert No</a></div>
+            <div class="pub-venue"><strong>NeurIPS</strong>, 2025</div>
+            
+            <div class="pub-links"><a href="https://arxiv.org/abs/2510.24088" target="_blank" class="paper-link">arXiv</a></div>
+        </div>
+    </div>
+    
+    <div class="publication-item" id="pub-C3">
+        <div class="pub-image">
+            <img src="https://dongjae0324.github.io/assets/img/publications/odlri.jpg" alt="Assigning Distinct Roles to Quantized and Low-Rank Matrices Toward Optimal Weight Decomposition">
+        </div>
+        <div class="pub-content">
+            <div class="pub-title">
+                <a href="https://arxiv.org/abs/2506.02077" target="_blank">Assigning Distinct Roles to Quantized and Low-Rank Matrices Toward Optimal Weight Decomposition</a> <span class="pub-num">[C3]</span> 
+            </div>
+            <div class="pub-authors">Yoonjun Cho, Soeun Kim, <strong>Dongjae Jeon</strong>, Kyelim Lee, Beomsoo Lee, <a href="https://albert-no.github.io/team/" target="_blank">Albert No</a></div>
+            <div class="pub-venue"><strong>ACL Findings</strong>, 2025</div>
+            
+            <div class="pub-links"><a href="https://arxiv.org/abs/2506.02077" target="_blank" class="paper-link">arXiv</a></div>
+        </div>
+    </div>
+    
+    <div class="publication-item" id="pub-C2">
+        <div class="pub-image">
+            <img src="https://dongjae0324.github.io/assets/img/publications/hessian.jpg" alt="Understanding and Mitigating Memorization in Generative Models via Sharpness of Probability Landscapes">
+        </div>
+        <div class="pub-content">
+            <div class="pub-title">
+                <a href="https://arxiv.org/abs/2412.04140" target="_blank">Understanding and Mitigating Memorization in Generative Models via Sharpness of Probability Landscapes</a> <span class="pub-num">[C2]</span> 
+            </div>
+            <div class="pub-authors"><strong>Dongjae Jeon*</strong>, Dueun Kim*, <a href="https://albert-no.github.io/team/" target="_blank">Albert No</a></div>
+            <div class="pub-venue"><strong>ICML</strong>, 2025 <span class="award-highlight">(Spotlight)</span></div>
+            <div class="prev-venue">Previously at AAAI (PPAI workshop), 2025 <span class="award-highlight">(Oral)</span></div>
+            <div class="pub-links"><a href="https://arxiv.org/abs/2412.04140" target="_blank" class="paper-link">arXiv</a> <a href="https://github.com/Dongjae0324/sharpness_memorization_diffusion" target="_blank" class="paper-link">Code</a> <a href="https://dongjae0324.github.io/assets/pdf/icml25_memorization_slide.pdf" target="_blank" class="paper-link">Slides</a></div>
+        </div>
+    </div>
+    
+    <div class="publication-item" id="pub-C1">
+        <div class="pub-image">
+            <img src="https://dongjae0324.github.io/assets/img/publications/bias.jpg" alt="Large Language Models Still Exhibit Bias in Long Text">
+        </div>
+        <div class="pub-content">
+            <div class="pub-title">
+                <a href="https://arxiv.org/abs/2410.17519" target="_blank">Large Language Models Still Exhibit Bias in Long Text</a> <span class="pub-num">[C1]</span> 
+            </div>
+            <div class="pub-authors"><a href="https://cryinginitial.github.io" target="_blank">Wonje Jeung</a>, <strong>Dongjae Jeon</strong>, Ashkan Yousefpour, <a href="https://ppolon.github.io" target="_blank">Jonghyun Choi</a></div>
+            <div class="pub-venue"><strong>ACL Findings</strong>, 2025</div>
+            <div class="prev-venue">Previously at NeurIPS (SOLAR workshop), 2024</div>
+            <div class="pub-links"><a href="https://arxiv.org/abs/2410.17519" target="_blank" class="paper-link">arXiv</a></div>
+        </div>
+    </div>
+    
+        </section>
+        
+        <!-- Awards Section -->
+        <section id="awards" class="section">
+            <h2 class="section-header">Awards</h2>
+                        
+    <div class="award-item">
+        <div class="award-image">
+            <img src="https://dongjae0324.github.io/assets/img/award/cvpr24.jpeg" alt="Class-Incremental with Repetition (CIR) using Unlabelled Data">
+        </div>
+        <div class="award-content">
+            <div class="award-title">
+                <a href="https://sites.google.com/view/clvision2024/challenge?authuser=0" target="_blank">Class-Incremental with Repetition (CIR) using Unlabelled Data</a>
+            </div>
+            <div class="award-rank">🥈 2nd Place</div>
+            <div class="award-venue"><em>CVPR CLVISION challenge</em>, 2024</div>
+            <div class="award-links"></div>
+        </div>
+    </div>
+    
+    <div class="award-item">
+        <div class="award-image">
+            <img src="https://dongjae0324.github.io/assets/img/award/iccv23_challenge_img2.png" alt="Continual Test-time Adaptation for Object Detection">
+        </div>
+        <div class="award-content">
+            <div class="award-title">
+                <a href="https://wvcl.vis.xyz/challenges" target="_blank">Continual Test-time Adaptation for Object Detection</a>
+            </div>
+            <div class="award-rank">🥇 1st Place</div>
+            <div class="award-venue"><em>ICCV VCL challenge</em>, 2023</div>
+            <div class="award-links"><a href="https://dongjae0324.github.io/assets/pdf/award/ICCV_23_challenge_slide.pdf" target="_blank" class="paper-link">Slides</a> <a href="https://dongjae0324.github.io/assets/pdf/award/ICCV_23_challenge_report.pdf" target="_blank" class="paper-link">Report</a></div>
+        </div>
+    </div>
+    
+        </section>
+        
+        <!-- Talks Section -->
+        <section class="section">
+            <h2 class="section-header">Talks</h2>
+                        
+    <div class="talk-item">
+        <div class="talk-image">
+            <img src="https://dongjae0324.github.io/assets/img/talks/diffusion_mlsys.png" alt="Privacy Issues in DGMs: How to detect & mitigate">
+        </div>
+        <div class="talk-content">
+            <div class="talk-title">Privacy Issues in DGMs: How to detect & mitigate</div>
+            <div class="talk-venue"><em>MLSys Student Group Seminar</em>, 2025</div>
+            <div class="talk-links"><a href="https://dongjae0324.github.io/assets/pdf/diffusion_mlsys_seminar.pdf" target="_blank" class="paper-link">Slides</a></div>
+        </div>
+    </div>
+    
+        </section>
+        
+        <!-- Blog Section -->
+        <section id="blog" class="section">
+            <h2 class="section-header">Blog</h2>
+            
+    <div class="blog-item">
+        <div class="blog-meta">
+            <span class="blog-date">Jan 2026</span>
+        </div>
+        <div class="blog-content">
+            <h3 class="blog-title"><a href="blog/dummy.html">Coming Soon</a></h3>
+            <p class="blog-excerpt">...will be updated soon...</p>
+            <a href="blog/dummy.html" class="blog-link">Read more →</a>
+        </div>
+    </div>
+    
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2026 Dongjae Jeon.</p>
+    </footer>
+    
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const target = document.querySelector(targetId);
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Update URL hash without jumping
+                    history.pushState(null, null, targetId);
+                }
+            });
+        });
+        
+        // Update active nav link on scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-links a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (scrollY >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+        
+        // Handle direct URL hash on page load
+        if (window.location.hash) {
+            const target = document.querySelector(window.location.hash);
+            if (target) {
+                setTimeout(() => {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 100);
+            }
+        }
+    </script>
+</body>
+</html>

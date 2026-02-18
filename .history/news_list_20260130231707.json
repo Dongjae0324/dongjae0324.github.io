@@ -1,0 +1,48 @@
+[
+  {
+    "month": 5,
+    "year": 2025,
+    "content": "Two Papers (<span style=\"color:#2667ff; font-weight: normal;\">ODLRI</span> and <span style=\"color:#2667ff; font-weight: normal;\">Regard-FT</span>) are accepted to ACL 2025! See you in Austria 🇦🇹!"
+  },
+  {
+    "month": 5,
+    "year": 2025,
+    "content": "A paper on Diffusion Safety is accepted to ICML 2025 as <span style=\"color:#2667ff; font-weight: normal;\">Spotlight (top 2.6% = 313/12,107)</span>! See you in Canada 🇨🇦!"
+  },
+  {
+    "month": 6,
+    "year": 2025,
+    "content": "A paper on Quantization is accepted to ICML 2025 (TTODLer-FM workshop) as <span style=\"color:#2667ff; font-weight: normal;\">Oral</span>!"
+  },
+  {
+    "month": 8,
+    "year": 2025,
+    "content": "Official code for ICML 2025 paper is uploaded! Checkout!"
+  },
+  {
+    "month": 8,
+    "year": 2025,
+    "content": "I gave a talk at <a href=\"https://mlsys.yonsei.ac.kr/\" target=\"_blank\" style=\"color:#2667ff;\">Yonsei MLSys student group</a> on Diffusion models &amp; their privacy issues."
+  },
+  {
+    "month": 9,
+    "year": 2025,
+    "content": "A paper on Diffusion Language Model is accepted to NeurIPS 2025. Kudos to my co-authors! See you in San Diego 🇺🇸!"
+  },
+  {
+    "month": 10,
+    "year": 2025,
+    "content": "Two preprints are now available: one on Diffusion Language Model training (<span style=\"color:#2667ff; font-weight: normal;\">Rainbow Padding</span>) and Safety (<span style=\"color:#2667ff; font-weight: normal;\">A2D</span>)."
+  },
+  {
+    "month": 11,
+    "year": 2025,
+    "content": "A paper on Machine Unlearning (<span style=\"color:#2667ff; font-weight: normal;\">IDI</span>) is accepted to AAAI 2026!"
+  },
+  {
+    "month": 1,
+    "year": 2026,
+    "content": "2 papers on Diffusion Language Model (<span style=\"color:#2667ff; font-weight: normal;\">Rainbow Padding</span>, <span style=\"color:#2667ff; font-weight: normal;\">A2D</span>)  is accepted to ICLR 2026. Kudos to my co-authors! See you in Brazil 🇧🇷!"
+  }
+]
+]
