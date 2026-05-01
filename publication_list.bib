@@ -12,6 +12,38 @@
 @STRING{AAAIW = {Proc. of the Association for the Advancement of Artificial Intelligence (AAAI) Workshop}}
 @STRING{ICLR = {Proc. of the International Conf. on Learning Representations (ICLR)}}
 
+@inproceedings{kim2025dependency,
+  title={Dependency-Aware Parallel Decoding via Attention for Diffusion LLMs},
+  author = {Kim, Bumjun and Jeon, Dongjae and Jeon, Moongyu and No, Albert},
+  coauthor={Dongjae Jeon, Bumjun Kim},
+  booktitle  = {ICML},
+  year      = {2026},
+  pub_id = {C9},
+  html = {https://arxiv.org/pdf/2603.12996},
+  img = {https://dongjae0324.github.io/assets/img/publications/dapd.gif},
+  tags = {DGMs},
+  tldr = {We propose DAPD, a training free parallel decoding method for diffusion LLMs that uses self attention to build a dependency graph over masked tokens and unmask an independent set in parallel to reduce joint marginal mismatch. Across LLaDA and Dream, DAPD improves the accuracy steps trade off and yields more globally dispersed, any order unmasking than marginal confidence baselines.},
+}
+
+
+@inproceedings{cho2025srr,
+  title={Preserve-Then-Quantize: Balancing Rank Budgets for Quantization Error Reconstruction in LLMs},
+  author = {Cho, Yoonjun and Jeon, Dongjae and Kim, Soeun and No, Albert},
+  coauthor={Dongjae Jeon, Yoonjun Cho},
+  booktitle  = {ICML},
+  year      = {2026},
+  prev_booktitle  = {ICML (TTODLer-FM workshop)},
+  prev_year      = {2025},
+  prev_award = {Oral},
+  html = {https://www.arxiv.org/abs/2602.02001},
+  img = {https://dongjae0324.github.io/assets/img/publications/srr.jpg},
+  tags = {Efficient ML},
+  pub_id = {C8},
+  slides = {https://dongjae0324.github.io/assets/pdf/icml25_srr_slide.pdf},
+  tldr = {This paper proposes Structured Residual Reconstruction (SRR), which preserves the top singular subspace of activation scaled weights before quantization and uses the remaining rank budget to reconstruct quantization error, guided by a theory based criterion for choosing the preserved rank. It improves post training quantization perplexity and boosts 2 bit QPEFT performance, reporting a 5.9 point average gain on GLUE.},
+}
+
+
 @inproceedings{kim2025rainbow,
   title={Rainbow Padding: Mitigating Early Termination In Instruction-tuned Diffusion LLMs},
   author = {Kim, Bumjun and Jeon, Dongjae and Kim, Dueun and Jeung, Wonje and No, Albert},

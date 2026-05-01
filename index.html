@@ -632,8 +632,8 @@ under the supervision of Professor <a href="https://albert-no.github.io/" target
 
 <p style="margin-top: 1em;">Quick overview:</p>
 <ul style="margin-top: 0.5em; padding-left: 1.2em;">
-    <li><span style="font-weight: 600;">Methodologies for generative models:</span> <a href="#pub-C4" class="cite-link">[C4]</a> <a href="#pub-C7" class="cite-link">[C7]</a> <a href="#pub-P2" class="cite-link">[P2]</a></li>
-    <li><span style="font-weight: 600;">Quantization in LLMs:</span> <a href="#pub-P1" class="cite-link">[P1]</a> <a href="#pub-C3" class="cite-link">[C3]</a></li>
+    <li><span style="font-weight: 600;">Methodologies for generative models:</span> <a href="#pub-C4" class="cite-link">[C4]</a> <a href="#pub-C7" class="cite-link">[C7]</a> <a href="#pub-C9" class="cite-link">[C9]</a></li>
+    <li><span style="font-weight: 600;">Quantization in LLMs:</span> <a href="#pub-C8" class="cite-link">[C8]</a> <a href="#pub-C3" class="cite-link">[C3]</a></li>
     <li><span style="font-weight: 600;">Safety &amp; privacy issues:</span> <a href="#pub-C1" class="cite-link">[C1]</a> <a href="#pub-C2" class="cite-link">[C2]</a> <a href="#pub-C5" class="cite-link">[C5]</a> <a href="#pub-C6" class="cite-link">[C6]</a></li>
 </ul>
 
@@ -700,41 +700,41 @@ Ultimately, I aim to deepen our understanding of machine perception and translat
             
             <h3 style="font-size: 1.1rem; color: var(--muted); margin-bottom: 1rem; font-weight: 600;">Preprints</h3>
             
-    <div class="publication-item" id="pub-P2">
+            
+            <h3 style="font-size: 1.1rem; color: var(--muted); margin: 2rem 0 1rem; font-weight: 600;">Peer-Reviewed</h3>
+                        
+    <div class="publication-item" id="pub-C9">
         <div class="pub-image">
             <img src="https://dongjae0324.github.io/assets/img/publications/dapd.gif" alt="Dependency-Aware Parallel Decoding via Attention for Diffusion LLMs">
         </div>
         <div class="pub-content">
             <div class="pub-title">
-                <a href="https://arxiv.org" target="_blank">Dependency-Aware Parallel Decoding via Attention for Diffusion LLMs</a> <span class="pub-num">[P2]</span> 
+                <a href="https://arxiv.org/pdf/2603.12996" target="_blank">Dependency-Aware Parallel Decoding via Attention for Diffusion LLMs</a> <span class="pub-num">[C9]</span> 
             </div>
             <div class="pub-authors">Bumjun Kim*, <strong>Dongjae Jeon*</strong>, Moongyu Jeon, <a href="https://albert-no.github.io/team/" target="_blank">Albert No</a></div>
-            <div class="pub-venue"><strong>Under review</strong>, 2026</div>
+            <div class="pub-venue"><strong>ICML</strong>, 2026</div>
             
-            <div class="pub-links"><button class="tldr-btn" onclick="toggleTldr(this)">TL;DR</button> <a href="https://arxiv.org" target="_blank" class="paper-link">arXiv</a></div>
+            <div class="pub-links"><button class="tldr-btn" onclick="toggleTldr(this)">TL;DR</button> <a href="https://arxiv.org/pdf/2603.12996" target="_blank" class="paper-link">arXiv</a></div>
             <div class="tldr-content">We propose DAPD, a training free parallel decoding method for diffusion LLMs that uses self attention to build a dependency graph over masked tokens and unmask an independent set in parallel to reduce joint marginal mismatch. Across LLaDA and Dream, DAPD improves the accuracy steps trade off and yields more globally dispersed, any order unmasking than marginal confidence baselines.</div>
         </div>
     </div>
     
-    <div class="publication-item" id="pub-P1">
+    <div class="publication-item" id="pub-C8">
         <div class="pub-image">
             <img src="https://dongjae0324.github.io/assets/img/publications/srr.jpg" alt="Preserve-Then-Quantize: Balancing Rank Budgets for Quantization Error Reconstruction in LLMs">
         </div>
         <div class="pub-content">
             <div class="pub-title">
-                <a href="https://www.arxiv.org/abs/2602.02001" target="_blank">Preserve-Then-Quantize: Balancing Rank Budgets for Quantization Error Reconstruction in LLMs</a> <span class="pub-num">[P1]</span> 
+                <a href="https://www.arxiv.org/abs/2602.02001" target="_blank">Preserve-Then-Quantize: Balancing Rank Budgets for Quantization Error Reconstruction in LLMs</a> <span class="pub-num">[C8]</span> 
             </div>
             <div class="pub-authors">Yoonjun Cho*, <strong>Dongjae Jeon*</strong>, Soeun Kim, <a href="https://albert-no.github.io/team/" target="_blank">Albert No</a></div>
-            <div class="pub-venue"><strong>ICML (TTODLer-FM workshop)</strong>, 2025 <span class="award-highlight">(Oral)</span></div>
-            
+            <div class="pub-venue"><strong>ICML</strong>, 2026</div>
+            <div class="prev-venue">Previously at ICML (TTODLer-FM workshop), 2025 <span class="award-highlight">(Oral)</span></div>
             <div class="pub-links"><button class="tldr-btn" onclick="toggleTldr(this)">TL;DR</button> <a href="https://www.arxiv.org/abs/2602.02001" target="_blank" class="paper-link">arXiv</a> <a href="https://dongjae0324.github.io/assets/pdf/icml25_srr_slide.pdf" target="_blank" class="paper-link">Slides</a></div>
             <div class="tldr-content">This paper proposes Structured Residual Reconstruction (SRR), which preserves the top singular subspace of activation scaled weights before quantization and uses the remaining rank budget to reconstruct quantization error, guided by a theory based criterion for choosing the preserved rank. It improves post training quantization perplexity and boosts 2 bit QPEFT performance, reporting a 5.9 point average gain on GLUE.</div>
         </div>
     </div>
     
-            
-            <h3 style="font-size: 1.1rem; color: var(--muted); margin: 2rem 0 1rem; font-weight: 600;">Peer-Reviewed</h3>
-                        
     <div class="publication-item" id="pub-C7">
         <div class="pub-image">
             <img src="https://dongjae0324.github.io/assets/img/publications/rainbow.jpg" alt="Rainbow Padding: Mitigating Early Termination In Instruction-tuned Diffusion LLMs">

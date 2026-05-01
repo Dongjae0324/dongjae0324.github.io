@@ -36,8 +36,8 @@ under the supervision of Professor <a href="https://albert-no.github.io/" target
 
 <p style="margin-top: 1em;">Quick overview:</p>
 <ul style="margin-top: 0.5em; padding-left: 1.2em;">
-    <li><span style="font-weight: 600;">Methodologies for generative models:</span> <a href="#pub-C4" class="cite-link">[C4]</a> <a href="#pub-C7" class="cite-link">[C7]</a> <a href="#pub-P2" class="cite-link">[P2]</a></li>
-    <li><span style="font-weight: 600;">Quantization in LLMs:</span> <a href="#pub-P1" class="cite-link">[P1]</a> <a href="#pub-C3" class="cite-link">[C3]</a></li>
+    <li><span style="font-weight: 600;">Methodologies for generative models:</span> <a href="#pub-C4" class="cite-link">[C4]</a> <a href="#pub-C7" class="cite-link">[C7]</a> <a href="#pub-C9" class="cite-link">[C9]</a></li>
+    <li><span style="font-weight: 600;">Quantization in LLMs:</span> <a href="#pub-C8" class="cite-link">[C8]</a> <a href="#pub-C3" class="cite-link">[C3]</a></li>
     <li><span style="font-weight: 600;">Safety &amp; privacy issues:</span> <a href="#pub-C1" class="cite-link">[C1]</a> <a href="#pub-C2" class="cite-link">[C2]</a> <a href="#pub-C5" class="cite-link">[C5]</a> <a href="#pub-C6" class="cite-link">[C6]</a></li>
 </ul>
 
