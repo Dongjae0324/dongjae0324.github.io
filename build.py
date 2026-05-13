@@ -180,7 +180,13 @@ def get_paper_entry(entry_key, entry, paper_num=None):
     
     # Generate authors HTML
     authors_html = generate_person_html(entry.persons['author'], coauthor)
-    
+
+    # Detect first-authored (first in author list, or marked co-first via coauthor)
+    first_p = entry.persons['author'][0]
+    first_name = " ".join(first_p.get_part('first') + first_p.get_part('last'))
+    is_first_authored = first_name == 'Dongjae Jeon' or 'Dongjae Jeon' in coauthor
+    item_class = 'publication-item highlight' if is_first_authored else 'publication-item'
+
     # Generate links
     links = []
     if 'html' in fields:
@@ -225,7 +231,7 @@ def get_paper_entry(entry_key, entry, paper_num=None):
     num_label = f'<span class="pub-num">[{paper_ref}]</span> ' if paper_ref else ''
     
     s = f'''
-    <div class="publication-item" {paper_id_attr}>
+    <div class="{item_class}" {paper_id_attr}>
         <div class="pub-image">
             <img src="{img}" alt="{title}">
         </div>
@@ -635,14 +641,19 @@ def get_css():
     .award-item {
         display: flex;
         gap: 20px;
-        padding: 1rem 0;
+        padding: 1rem 0.8rem;
         border-bottom: 1px solid var(--border);
     }
-    
+
     .publication-item:last-child,
     .talk-item:last-child,
     .award-item:last-child {
         border-bottom: none;
+    }
+
+    .publication-item.highlight {
+        background: #fff8d6;
+        border-radius: 4px;
     }
 
     .pub-image img {
@@ -1057,7 +1068,7 @@ def get_index_html():
         <section id="publications" class="section">
             <h2 class="section-header">Publications</h2>
             <p style="color: var(--muted); margin-bottom: 1.5rem; font-size: 0.95rem;">
-                (*) denotes equal contribution
+                (*) denotes equal contribution &nbsp;·&nbsp; <span style="background: #fff8d6; padding: 0.05rem 0.4rem; border-radius: 3px;">Research Highlight</span>
             </p>
             
             <h3 style="font-size: 1.1rem; color: var(--muted); margin-bottom: 1rem; font-weight: 600;">Preprints</h3>
