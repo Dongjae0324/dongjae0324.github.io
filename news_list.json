@@ -45,8 +45,13 @@
     "content": "Two papers on Diffusion Language Model (<span style=\"color:#2667ff; font-weight: normal;\">Rainbow Padding</span>, <span style=\"color:#2667ff; font-weight: normal;\">A2D</span>) are accepted to ICLR 2026. See you in Brazil 🇧🇷!"
   },
   {
-    "month": 5,
+    "month": 4,
     "year": 2026,
     "content": "Two papers on both Diffusion Language Model (<span style=\"color:#2667ff; font-weight: normal;\">DAPD</span>) and Quantization (<span style=\"color:#2667ff; font-weight: normal;\">SRR</span>) are accepted to ICML 2026. See you in Seoul 🇰🇷!"
+  },
+  {
+    "month": 5,
+    "year": 2026,
+    "content": "Two preprints are now available: one on VLM analysis (<span style=\"color:#2667ff; font-weight: normal;\">VLMs Trace Without...</span>) and Safety (<span style=\"color:#2667ff; font-weight: normal;\">DPO-Attack</span>)."
   }
 ]

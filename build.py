@@ -23,7 +23,7 @@ def get_personal_data():
     scholar = 'https://scholar.google.com/citations?user=SaaN_bAAAAAJ&hl=en'
     github = "https://github.com/Dongjae0324"
     linkedin = "https://www.linkedin.com/in/dongjae-jeon-a74526255"
-    cv = "https://dongjae0324.github.io/assets/pdf/CV_dongjae_jeon.pdf"
+    cv = "assets/pdf/CV_dongjae_jeon.pdf"
     
     bio_text = """
 I am a first-year Master's student in Computer Science at <a href="https://www.yonsei.ac.kr/en_sc/" target="_blank">Yonsei University</a>, 
@@ -31,14 +31,14 @@ where I conduct research in the <a href="https://albert-no.github.io/" target="_
 under the supervision of Professor <a href="https://albert-no.github.io/" target="_blank">Albert No</a>.
 
 <p style="margin-top: 1em; line-height: 1.5;">
-  I research <strong>generative modeling</strong>, focusing on improving models by analyzing their underlying mechanisms. My recent work includes addressing core challenges in diffusion LLMs (<a href="#pub-C4" class="cite-link">[C4]</a><a href="#pub-C6" class="cite-link">[C6]</a><a href="#pub-P2" class="cite-link">[P2]</a>), analyzing diffusion-based image generation (<a href="#pub-C2" class="cite-link">[C2]</a>), and enhancing model efficiency via quantization (<a href="#pub-C3" class="cite-link">[C3]</a><a href="#pub-P1" class="cite-link">[P1]</a>).
+  I research <strong>generative modeling</strong>, focusing on improving models by analyzing their underlying mechanisms. My recent work includes addressing core challenges in diffusion LLMs (<a href="#pub-C4" class="cite-link">[C4]</a><a href="#pub-C7" class="cite-link">[C7]</a><a href="#pub-C9" class="cite-link">[C9]</a>), analyzing diffusion-based image generation (<a href="#pub-C2" class="cite-link">[C2]</a>), and enhancing model efficiency via quantization (<a href="#pub-C3" class="cite-link">[C3]</a><a href="#pub-C8" class="cite-link">[C8]</a>).
 </p>
 
 <p style="margin-top: 1em;">Quick overview:</p>
 <ul style="margin-top: 0.5em; padding-left: 1.2em;">
     <li><span style="font-weight: 600;">Methodologies for generative models:</span> <a href="#pub-C4" class="cite-link">[C4]</a> <a href="#pub-C7" class="cite-link">[C7]</a> <a href="#pub-C9" class="cite-link">[C9]</a></li>
     <li><span style="font-weight: 600;">Quantization in LLMs:</span> <a href="#pub-C8" class="cite-link">[C8]</a> <a href="#pub-C3" class="cite-link">[C3]</a></li>
-    <li><span style="font-weight: 600;">Safety &amp; privacy issues:</span> <a href="#pub-C1" class="cite-link">[C1]</a> <a href="#pub-C2" class="cite-link">[C2]</a> <a href="#pub-C5" class="cite-link">[C5]</a> <a href="#pub-C6" class="cite-link">[C6]</a></li>
+    <li><span style="font-weight: 600;">Safety &amp; privacy issues:</span> <a href="#pub-C1" class="cite-link">[C1]</a> <a href="#pub-C2" class="cite-link">[C2]</a> <a href="#pub-C5" class="cite-link">[C5]</a> <a href="#pub-C6" class="cite-link">[C6]</a> <a href="#pub-P1" class="cite-link">[P1]</a></li>
 </ul>
 
 <p style="margin-top: 1em;">I also bring experience in <em>Continual Learning</em> for computer vision, specifically in Object Detection (See Awards).

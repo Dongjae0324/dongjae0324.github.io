@@ -13,3 +13,26 @@
 @STRING{ICLR = {Proc. of the International Conf. on Learning Representations (ICLR)}}
 
 
+@inproceedings{hong2026vlm_tracing,
+  title={VLMs Trace Without Tracking: Diagnosing Failures in Visual Path Following},
+  author = {Hong, Hyesoo and Kim, Min Soo and Jeung, Wonje and Yoon, Sangyeon and Jeon, Dongjae and No, Albert},
+  booktitle  = {Under Review},
+  year      = {2026},
+  pub_id = {P2},
+  html = {https://arxiv.org/},
+  img = {assets/img/publications/vlm_tracing.jpg},
+  tldr = {We diagnose why state-of-the-art VLMs lose a selected visual path when nearby alternatives look locally similar: behavioral interventions, causal masking, and internal attention/representation analyses converge on a single mechanism — nearby distractors pull the model off the true continuation, producing systematic adjacent-path jumps. Standard remedies (model scaling, reasoning, explicit tracing instructions) fail to recover stable path following, and the same failure persists on real metro maps and tangled cables.},
+}
+
+
+@inproceedings{yoon2026dpo_attack,
+  title={Few-Shot Truly Benign DPO Attack for Jailbreaking LLMs},
+  author = {Yoon, Sangyeon and Jeung, Wonje and Cho, Yoonjun and Jeon, Dongjae and No, Albert},
+  coauthor={Sangyeon Yoon, Wonje Jeung},
+  booktitle  = {Under Review},
+  year      = {2026},
+  pub_id = {P1},
+  html = {https://arxiv.org/},
+  img = {assets/img/publications/dpo_attack.jpg},
+  tldr = {We propose a truly benign DPO attack that jailbreaks frontier LLMs using only 10 harmless preference pairs that look indistinguishable from ordinary over-refusal reduction data, pairing benign prompts with a helpful answer (preferred) and a refusal (dispreferred). Because DPO directly suppresses refusal behavior, the effect transfers to unseen harmful prompts, reaching up to 81.73% ASR on GPT-4.1-nano for $0.1 while evading the OpenAI Moderation API and frontier-scale LLM auditors.},
+}
