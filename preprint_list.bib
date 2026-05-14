@@ -13,6 +13,20 @@
 @STRING{ICLR = {Proc. of the International Conf. on Learning Representations (ICLR)}}
 
 
+
+@inproceedings{jeon2026rollout_init,
+  title={Single-Step Initialization for Exploratory Parallel Rollouts in Diffusion LLMs},
+  author = {Jeon, Dongjae and Kim, Bumjun and Kim, Mingyu and No, Albert},
+  coauthor={Dongjae Jeon, Bumjun Kim},
+  booktitle  = {Working in progress},
+  year      = {2026},
+  pub_id = {P1},
+  html = {https://arxiv.org/},
+  img = {assets/img/publications/comingsoon.jpg},
+  tldr = {We propose a training-free, single-step random initialization for rollout generation in diffusion LLM policy optimization: at the first denoising step, each rollout independently unmasks one uniformly random position before the original sampler (e.g., Fast-dLLM) resumes unchanged. This breaks the delayed branching of confidence-based parallel decoding — where rollouts otherwise stay in lockstep on the same tokens and positions for much of generation, collapsing the group-relative learning signal — and recovers rollout diversity and reasoning potential. Combined with Fast-dLLM on LLaDA-8B-Instruct, it improves downstream RL performance on GSM8K and MATH-500 without auxiliary models or policy modification.},
+}
+
+
 @inproceedings{hong2026vlm_tracing,
   title={VLMs Trace Without Tracking: Diagnosing Failures in Visual Path Following},
   author = {Hong, Hyesoo and Kim, Minsoo and Jeung, Wonje and Yoon, Sangyeon and Jeon, Dongjae and No, Albert},
@@ -31,7 +45,7 @@
   coauthor={Sangyeon Yoon, Wonje Jeung},
   booktitle  = {Under Review},
   year      = {2026},
-  pub_id = {P1},
+  pub_id = {P3},
   html = {https://arxiv.org/},
   img = {assets/img/publications/dpo_attack.jpg},
   tldr = {We propose a truly benign DPO attack that jailbreaks frontier LLMs using only 10 harmless preference pairs that look indistinguishable from ordinary over-refusal reduction data, pairing benign prompts with a helpful answer (preferred) and a refusal (dispreferred). Because DPO directly suppresses refusal behavior, the effect transfers to unseen harmful prompts, reaching up to 81.73% ASR on GPT-4.1-nano for $0.1 while evading the OpenAI Moderation API and frontier-scale LLM auditors.},

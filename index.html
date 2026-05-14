@@ -627,14 +627,15 @@ where I conduct research in the <a href="https://albert-no.github.io/" target="_
 under the supervision of Professor <a href="https://albert-no.github.io/" target="_blank">Albert No</a>.
 
 <p style="margin-top: 1em; line-height: 1.5;">
-  I research <strong>generative modeling</strong>, focusing on improving models by analyzing their underlying mechanisms. My recent work includes addressing core challenges in diffusion LLMs (<a href="#pub-C4" class="cite-link">[C4]</a><a href="#pub-C7" class="cite-link">[C7]</a><a href="#pub-C9" class="cite-link">[C9]</a>), analyzing diffusion-based image generation (<a href="#pub-C2" class="cite-link">[C2]</a>), and enhancing model efficiency via quantization (<a href="#pub-C3" class="cite-link">[C3]</a><a href="#pub-C8" class="cite-link">[C8]</a>).
+  I research generative modeling, focusing on improving models by analyzing their underlying mechanisms. My recent work includes addressing core challenges in diffusion LLMs (<a href="#pub-C4" class="cite-link">[C4]</a><a href="#pub-C7" class="cite-link">[C7]</a><a href="#pub-C9" class="cite-link">[C9]</a>), analyzing diffusion-based image generation (<a href="#pub-C2" class="cite-link">[C2]</a>), and enhancing model efficiency via quantization (<a href="#pub-C3" class="cite-link">[C3]</a><a href="#pub-C8" class="cite-link">[C8]</a>).
+  <br>Currently, I am interested in solving problems in reasoning in LLMs or diffusion LLMs (<a href="#pub-P1" class="cite-link">[P1]</a>). 
 </p>
 
 <p style="margin-top: 1em;">Quick overview:</p>
 <ul style="margin-top: 0.5em; padding-left: 1.2em;">
-    <li><span style="font-weight: 600;">Methodologies for generative models:</span> <a href="#pub-C4" class="cite-link">[C4]</a> <a href="#pub-C7" class="cite-link">[C7]</a> <a href="#pub-C9" class="cite-link">[C9]</a></li>
+    <li><span style="font-weight: 600;">Methodologies for generative models:</span> <a href="#pub-C4" class="cite-link">[C4]</a> <a href="#pub-C7" class="cite-link">[C7]</a> <a href="#pub-C9" class="cite-link">[C9]</a> <a href="#pub-P1" class="cite-link">[P1]</a></li>
     <li><span style="font-weight: 600;">Quantization in LLMs:</span> <a href="#pub-C8" class="cite-link">[C8]</a> <a href="#pub-C3" class="cite-link">[C3]</a></li>
-    <li><span style="font-weight: 600;">Safety &amp; privacy issues:</span> <a href="#pub-C1" class="cite-link">[C1]</a> <a href="#pub-C2" class="cite-link">[C2]</a> <a href="#pub-C5" class="cite-link">[C5]</a> <a href="#pub-C6" class="cite-link">[C6]</a> <a href="#pub-P1" class="cite-link">[P1]</a></li>
+    <li><span style="font-weight: 600;">Safety &amp; privacy issues:</span> <a href="#pub-C1" class="cite-link">[C1]</a> <a href="#pub-C2" class="cite-link">[C2]</a> <a href="#pub-C5" class="cite-link">[C5]</a> <a href="#pub-C6" class="cite-link">[C6]</a> <a href="#pub-P3" class="cite-link">[P3]</a></li>
 </ul>
 
 <p style="margin-top: 1em;">I also bring experience in <em>Continual Learning</em> for computer vision, specifically in Object Detection (See Awards).
@@ -700,6 +701,22 @@ Ultimately, I aim to deepen our understanding of machine perception and translat
             
             <h3 style="font-size: 1.1rem; color: var(--muted); margin-bottom: 1rem; font-weight: 600;">Preprints</h3>
             
+    <div class="publication-item" id="pub-P1">
+        <div class="pub-image">
+            <img src="assets/img/publications/comingsoon.jpg" alt="Single-Step Initialization for Exploratory Parallel Rollouts in Diffusion LLMs">
+        </div>
+        <div class="pub-content">
+            <div class="pub-title">
+                <a href="https://arxiv.org/" target="_blank">Single-Step Initialization for Exploratory Parallel Rollouts in Diffusion LLMs</a> <span class="pub-num">[P1]</span> 
+            </div>
+            <div class="pub-authors"><strong>Dongjae Jeon*</strong>, Bumjun Kim*, <a href="https://mingyukim87.github.io/" target="_blank">Mingyu Kim</a>, <a href="https://albert-no.github.io/team/" target="_blank">Albert No</a></div>
+            <div class="pub-venue"><strong>Working in progress</strong>, 2026</div>
+            
+            <div class="pub-links"><button class="tldr-btn" onclick="toggleTldr(this)">TL;DR</button> <a href="https://arxiv.org/" target="_blank" class="paper-link">arXiv</a></div>
+            <div class="tldr-content">We propose a training-free, single-step random initialization for rollout generation in diffusion LLM policy optimization: at the first denoising step, each rollout independently unmasks one uniformly random position before the original sampler (e.g., Fast-dLLM) resumes unchanged. This breaks the delayed branching of confidence-based parallel decoding — where rollouts otherwise stay in lockstep on the same tokens and positions for much of generation, collapsing the group-relative learning signal — and recovers rollout diversity and reasoning potential. Combined with Fast-dLLM on LLaDA-8B-Instruct, it improves downstream RL performance on GSM8K and MATH-500 without auxiliary models or policy modification.</div>
+        </div>
+    </div>
+    
     <div class="publication-item" id="pub-P2">
         <div class="pub-image">
             <img src="assets/img/publications/vlm_tracing.jpg" alt="VLMs Trace Without Tracking: Diagnosing Failures in Visual Path Following">
@@ -716,13 +733,13 @@ Ultimately, I aim to deepen our understanding of machine perception and translat
         </div>
     </div>
     
-    <div class="publication-item" id="pub-P1">
+    <div class="publication-item" id="pub-P3">
         <div class="pub-image">
             <img src="assets/img/publications/dpo_attack.jpg" alt="Few-Shot Truly Benign DPO Attack for Jailbreaking LLMs">
         </div>
         <div class="pub-content">
             <div class="pub-title">
-                <a href="https://arxiv.org/" target="_blank">Few-Shot Truly Benign DPO Attack for Jailbreaking LLMs</a> <span class="pub-num">[P1]</span> 
+                <a href="https://arxiv.org/" target="_blank">Few-Shot Truly Benign DPO Attack for Jailbreaking LLMs</a> <span class="pub-num">[P3]</span> 
             </div>
             <div class="pub-authors">Sangyeon Yoon*, <a href="https://cryinginitial.github.io" target="_blank">Wonje Jeung*</a>, Yoonjun Cho, <strong>Dongjae Jeon</strong>, <a href="https://albert-no.github.io/team/" target="_blank">Albert No</a></div>
             <div class="pub-venue"><strong>Under Review</strong>, 2026</div>
