@@ -656,11 +656,6 @@ Ultimately, I aim to deepen our understanding of machine perception and translat
     </div>
     
     <div class="news-item">
-        <span class="news-date">May 2026</span>
-        <span class="news-content">Two preprints are now available: one on VLM analysis (<span style="color:#2667ff; font-weight: normal;">VLMs Trace Without...</span>) and Safety (<span style="color:#2667ff; font-weight: normal;">DPO-Attack</span>).</span>
-    </div>
-    
-    <div class="news-item">
         <span class="news-date">Apr 2026</span>
         <span class="news-content">Two papers on both Diffusion Language Model (<span style="color:#2667ff; font-weight: normal;">DAPD</span>) and Quantization (<span style="color:#2667ff; font-weight: normal;">SRR</span>) are accepted to ICML 2026. See you in Seoul 🇰🇷!</span>
     </div>
@@ -689,6 +684,11 @@ Ultimately, I aim to deepen our understanding of machine perception and translat
         <span class="news-date">Aug 2025</span>
         <span class="news-content">Official code for ICML 2025 paper is uploaded! Checkout!</span>
     </div>
+    
+    <div class="news-item">
+        <span class="news-date">Aug 2025</span>
+        <span class="news-content">I gave a talk at <a href="https://mlsys.yonsei.ac.kr/" target="_blank" style="color:#2667ff;">Yonsei MLSys student group</a> on Diffusion models &amp; their privacy issues.</span>
+    </div>
     </div>
         </section>
         
@@ -714,22 +714,6 @@ Ultimately, I aim to deepen our understanding of machine perception and translat
             
             <div class="pub-links"><button class="tldr-btn" onclick="toggleTldr(this)">TL;DR</button> <a href="https://arxiv.org/" target="_blank" class="paper-link">arXiv</a></div>
             <div class="tldr-content">Coming Soon.</div>
-        </div>
-    </div>
-    
-    <div class="publication-item" id="pub-P2">
-        <div class="pub-image">
-            <img src="assets/img/publications/vlm_tracing.jpg" alt="VLMs Trace Without Tracking: Diagnosing Failures in Visual Path Following">
-        </div>
-        <div class="pub-content">
-            <div class="pub-title">
-                <a href="https://arxiv.org/" target="_blank">VLMs Trace Without Tracking: Diagnosing Failures in Visual Path Following</a> <span class="pub-num">[P2]</span> 
-            </div>
-            <div class="pub-authors">Hyesoo Hong, Minsoo Kim, <a href="https://cryinginitial.github.io" target="_blank">Wonje Jeung</a>, Sangyeon Yoon, <strong>Dongjae Jeon</strong>, <a href="https://albert-no.github.io/team/" target="_blank">Albert No</a></div>
-            <div class="pub-venue"><strong>Under Review</strong>, 2026</div>
-            
-            <div class="pub-links"><button class="tldr-btn" onclick="toggleTldr(this)">TL;DR</button> <a href="https://arxiv.org/" target="_blank" class="paper-link">arXiv</a></div>
-            <div class="tldr-content">We diagnose why state-of-the-art VLMs lose a selected visual path when nearby alternatives look locally similar: behavioral interventions, causal masking, and internal attention/representation analyses converge on a single mechanism — nearby distractors pull the model off the true continuation, producing systematic adjacent-path jumps. Standard remedies (model scaling, reasoning, explicit tracing instructions) fail to recover stable path following, and the same failure persists on real metro maps and tangled cables.</div>
         </div>
     </div>
     
@@ -763,7 +747,7 @@ Ultimately, I aim to deepen our understanding of machine perception and translat
             <div class="pub-authors">Bumjun Kim*, <strong>Dongjae Jeon*</strong>, Moongyu Jeon*, <a href="https://albert-no.github.io/team/" target="_blank">Albert No</a></div>
             <div class="pub-venue"><strong>ICML</strong>, 2026</div>
             
-            <div class="pub-links"><button class="tldr-btn" onclick="toggleTldr(this)">TL;DR</button> <a href="https://arxiv.org/pdf/2603.12996" target="_blank" class="paper-link">arXiv</a></div>
+            <div class="pub-links"><button class="tldr-btn" onclick="toggleTldr(this)">TL;DR</button> <a href="https://arxiv.org/pdf/2603.12996" target="_blank" class="paper-link">arXiv</a> <a href="https://ai-isl.github.io/dapd" target="_blank" class="paper-link">Project</a></div>
             <div class="tldr-content">We propose DAPD, a training free parallel decoding method for diffusion LLMs that uses self attention to build a dependency graph over masked tokens and unmask an independent set in parallel to reduce joint marginal mismatch. Across LLaDA and Dream, DAPD improves the accuracy steps trade off and yields more globally dispersed, any order unmasking than marginal confidence baselines.</div>
         </div>
     </div>
@@ -779,7 +763,7 @@ Ultimately, I aim to deepen our understanding of machine perception and translat
             <div class="pub-authors">Yoonjun Cho*, <strong>Dongjae Jeon*</strong>, Soeun Kim, Moongyu Jeon, <a href="https://albert-no.github.io/team/" target="_blank">Albert No</a></div>
             <div class="pub-venue"><strong>ICML</strong>, 2026</div>
             <div class="prev-venue">Previously at ICML (TTODLer-FM workshop), 2025 <span class="award-highlight">(Oral)</span></div>
-            <div class="pub-links"><button class="tldr-btn" onclick="toggleTldr(this)">TL;DR</button> <a href="https://www.arxiv.org/abs/2602.02001" target="_blank" class="paper-link">arXiv</a> <a href="https://ai-isl.github.io/srr" target="_blank" class="paper-link">Project</a> <a href="assets/pdf/icml25_srr_slide.pdf" target="_blank" class="paper-link">Slides</a></div>
+            <div class="pub-links"><button class="tldr-btn" onclick="toggleTldr(this)">TL;DR</button> <a href="https://www.arxiv.org/abs/2602.02001" target="_blank" class="paper-link">arXiv</a> <a href="https://github.com/cyoonjun/srr" target="_blank" class="paper-link">Code</a> <a href="https://ai-isl.github.io/srr" target="_blank" class="paper-link">Project</a> <a href="assets/pdf/icml25_srr_slide.pdf" target="_blank" class="paper-link">Slides</a></div>
             <div class="tldr-content">This paper proposes Structured Residual Reconstruction (SRR), which preserves the top singular subspace of activation scaled weights before quantization and uses the remaining rank budget to reconstruct quantization error, guided by a theory based criterion for choosing the preserved rank. It improves post training quantization perplexity and boosts 2 bit QPEFT performance, reporting a 5.9 point average gain on GLUE.</div>
         </div>
     </div>

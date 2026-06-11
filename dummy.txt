@@ -1,0 +1,13 @@
+@inproceedings{hong2026vlm_tracing,
+  title={VLMs Trace Without Tracking: Diagnosing Failures in Visual Path Following},
+  author = {Hong, Hyesoo and Kim, Minsoo and Jeung, Wonje and Yoon, Sangyeon and Jeon, Dongjae and No, Albert},
+  booktitle  = {Under Review},
+  year      = {2026},
+  pub_id = {P2},
+  html = {https://arxiv.org/},
+  img = {assets/img/publications/vlm_tracing.jpg},
+  tldr = {We diagnose why state-of-the-art VLMs lose a selected visual path when nearby alternatives look locally similar: behavioral interventions, causal masking, and internal attention/representation analyses converge on a single mechanism — nearby distractors pull the model off the true continuation, producing systematic adjacent-path jumps. Standard remedies (model scaling, reasoning, explicit tracing instructions) fail to recover stable path following, and the same failure persists on real metro maps and tangled cables.},
+}
+
+
+Two preprints are now available: one on VLM analysis (<span style=\"color:#2667ff; font-weight: normal;\">VLMs Trace Without...</span>) and Safety (<span style=\"color:#2667ff; font-weight: normal;\">DPO-Attack</span>).

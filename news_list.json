@@ -53,10 +53,5 @@
     "month": 5,
     "year": 2026,
     "content": "Happy to share that I received a Silver Medal 🥈 as an ICML 2026 Reviewer."
-  },
-  {
-    "month": 5,
-    "year": 2026,
-    "content": "Two preprints are now available: one on VLM analysis (<span style=\"color:#2667ff; font-weight: normal;\">VLMs Trace Without...</span>) and Safety (<span style=\"color:#2667ff; font-weight: normal;\">DPO-Attack</span>)."
   }
 ]
