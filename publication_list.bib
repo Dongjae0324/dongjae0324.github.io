@@ -12,6 +12,19 @@
 @STRING{AAAIW = {Proc. of the Association for the Advancement of Artificial Intelligence (AAAI) Workshop}}
 @STRING{ICLR = {Proc. of the International Conf. on Learning Representations (ICLR)}}
 
+
+@inproceedings{jeon2026rollout_init,
+  title={Single-Step Initialization for Exploratory Parallel Rollouts in Diffusion LLMs},
+  author = {Jeon, Dongjae and Kim, Bumjun and Kim, Mingyu and No, Albert},
+  coauthor={Dongjae Jeon, Bumjun Kim},
+  booktitle  = {ICML RLxF, SPIGM workshop},
+  year      = {2026},
+  pub_id = {W1},
+  html = {https://arxiv.org/},
+  img = {assets/img/publications/single_step_rollout.jpg},
+  tldr = {Parallel decoding makes diffusion LLM rollouts faster, but confidence-based selection keeps rollouts nearly identical by delaying branching. A single random unmasking step before decoding forces early branching, restoring rollout diversity and improving downstream RL performance without changing the decoder.},
+}
+
 @inproceedings{kim2025dependency,
   title={Dependency-Aware Parallel Decoding via Attention for Diffusion LLMs},
   author = {Kim, Bumjun and Jeon, Dongjae and Jeon, Moongyu and No, Albert},

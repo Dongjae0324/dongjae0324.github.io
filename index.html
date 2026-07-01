@@ -652,12 +652,22 @@ Ultimately, I aim to deepen our understanding of machine perception and translat
             <div class="news-list">
     <div class="news-item">
         <span class="news-date">May 2026</span>
+        <span class="news-content">Excited to announce that I will join KRAFTON AI Companion Team as a Research Scientist Intern starting from July 🎉 !!</span>
+    </div>
+    
+    <div class="news-item">
+        <span class="news-date">May 2026</span>
         <span class="news-content">Happy to share that I received a Silver Medal 🥈 as an ICML 2026 Reviewer.</span>
     </div>
     
     <div class="news-item">
         <span class="news-date">Apr 2026</span>
         <span class="news-content">Two papers on both Diffusion Language Model (<span style="color:#2667ff; font-weight: normal;">DAPD</span>) and Quantization (<span style="color:#2667ff; font-weight: normal;">SRR</span>) are accepted to ICML 2026. See you in Seoul 🇰🇷!</span>
+    </div>
+    
+    <div class="news-item">
+        <span class="news-date">Apr 2026</span>
+        <span class="news-content">Two preprints are now available: one on VLM analysis (<span style="color:#2667ff; font-weight: normal;">VLMs Trace Without...</span>) and Safety (<span style="color:#2667ff; font-weight: normal;">DPO-Attack</span>).</span>
     </div>
     
     <div class="news-item">
@@ -679,16 +689,6 @@ Ultimately, I aim to deepen our understanding of machine perception and translat
         <span class="news-date">Sep 2025</span>
         <span class="news-content">A paper on Diffusion Language Model is accepted to NeurIPS 2025. Kudos to my co-authors! See you in San Diego 🇺🇸!</span>
     </div>
-    
-    <div class="news-item">
-        <span class="news-date">Aug 2025</span>
-        <span class="news-content">Official code for ICML 2025 paper is uploaded! Checkout!</span>
-    </div>
-    
-    <div class="news-item">
-        <span class="news-date">Aug 2025</span>
-        <span class="news-content">I gave a talk at <a href="https://mlsys.yonsei.ac.kr/" target="_blank" style="color:#2667ff;">Yonsei MLSys student group</a> on Diffusion models &amp; their privacy issues.</span>
-    </div>
     </div>
         </section>
         
@@ -701,22 +701,6 @@ Ultimately, I aim to deepen our understanding of machine perception and translat
             
             <h3 style="font-size: 1.1rem; color: var(--muted); margin-bottom: 1rem; font-weight: 600;">Preprints</h3>
             
-    <div class="publication-item" id="pub-P1">
-        <div class="pub-image">
-            <img src="assets/img/publications/comingsoon.jpg" alt="Single-Step Initialization for Exploratory Parallel Rollouts in Diffusion LLMs">
-        </div>
-        <div class="pub-content">
-            <div class="pub-title">
-                <a href="https://arxiv.org/" target="_blank">Single-Step Initialization for Exploratory Parallel Rollouts in Diffusion LLMs</a> <span class="pub-num">[P1]</span> 
-            </div>
-            <div class="pub-authors"><strong>Dongjae Jeon*</strong>, Bumjun Kim*, <a href="https://mingyukim87.github.io/" target="_blank">Mingyu Kim</a>, <a href="https://albert-no.github.io/team/" target="_blank">Albert No</a></div>
-            <div class="pub-venue"><strong>Working in progress</strong>, 2026</div>
-            
-            <div class="pub-links"><button class="tldr-btn" onclick="toggleTldr(this)">TL;DR</button> <a href="https://arxiv.org/" target="_blank" class="paper-link">arXiv</a></div>
-            <div class="tldr-content">Coming Soon.</div>
-        </div>
-    </div>
-    
     <div class="publication-item" id="pub-P3">
         <div class="pub-image">
             <img src="assets/img/publications/dpo_attack.jpg" alt="Few-Shot Truly Benign DPO Attack for Jailbreaking LLMs">
@@ -733,9 +717,41 @@ Ultimately, I aim to deepen our understanding of machine perception and translat
         </div>
     </div>
     
+    <div class="publication-item" id="pub-P2">
+        <div class="pub-image">
+            <img src="assets/img/publications/vlm_tracing.jpg" alt="VLMs Trace Without Tracking: Diagnosing Failures in Visual Path Following">
+        </div>
+        <div class="pub-content">
+            <div class="pub-title">
+                <a href="https://arxiv.org/" target="_blank">VLMs Trace Without Tracking: Diagnosing Failures in Visual Path Following</a> <span class="pub-num">[P2]</span> 
+            </div>
+            <div class="pub-authors">Hyesoo Hong, Minsoo Kim, <a href="https://cryinginitial.github.io" target="_blank">Wonje Jeung</a>, Sangyeon Yoon, <strong>Dongjae Jeon</strong>, <a href="https://albert-no.github.io/team/" target="_blank">Albert No</a></div>
+            <div class="pub-venue"><strong>Under Review</strong>, 2026</div>
+            
+            <div class="pub-links"><button class="tldr-btn" onclick="toggleTldr(this)">TL;DR</button> <a href="https://arxiv.org/" target="_blank" class="paper-link">arXiv</a></div>
+            <div class="tldr-content">We diagnose why state-of-the-art VLMs lose a selected visual path when nearby alternatives look locally similar: behavioral interventions, causal masking, and internal attention/representation analyses converge on a single mechanism — nearby distractors pull the model off the true continuation, producing systematic adjacent-path jumps. Standard remedies (model scaling, reasoning, explicit tracing instructions) fail to recover stable path following, and the same failure persists on real metro maps and tangled cables.</div>
+        </div>
+    </div>
+    
             
             <h3 style="font-size: 1.1rem; color: var(--muted); margin: 2rem 0 1rem; font-weight: 600;">Peer-Reviewed</h3>
                         
+    <div class="publication-item" id="pub-W1">
+        <div class="pub-image">
+            <img src="assets/img/publications/single_step_rollout.jpg" alt="Single-Step Initialization for Exploratory Parallel Rollouts in Diffusion LLMs">
+        </div>
+        <div class="pub-content">
+            <div class="pub-title">
+                <a href="https://arxiv.org/" target="_blank">Single-Step Initialization for Exploratory Parallel Rollouts in Diffusion LLMs</a> <span class="pub-num">[W1]</span> 
+            </div>
+            <div class="pub-authors"><strong>Dongjae Jeon*</strong>, Bumjun Kim*, <a href="https://mingyukim87.github.io/" target="_blank">Mingyu Kim</a>, <a href="https://albert-no.github.io/team/" target="_blank">Albert No</a></div>
+            <div class="pub-venue"><strong>ICML RLxF, SPIGM workshop</strong>, 2026</div>
+            
+            <div class="pub-links"><button class="tldr-btn" onclick="toggleTldr(this)">TL;DR</button> <a href="https://arxiv.org/" target="_blank" class="paper-link">arXiv</a></div>
+            <div class="tldr-content">Parallel decoding makes diffusion LLM rollouts faster, but confidence-based selection keeps rollouts nearly identical by delaying branching. A single random unmasking step before decoding forces early branching, restoring rollout diversity and improving downstream RL performance without changing the decoder.</div>
+        </div>
+    </div>
+    
     <div class="publication-item" id="pub-C9">
         <div class="pub-image">
             <img src="assets/img/publications/dapd.gif" alt="Dependency-Aware Parallel Decoding via Attention for Diffusion LLMs">
