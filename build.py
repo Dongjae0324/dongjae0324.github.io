@@ -876,7 +876,7 @@ def get_css():
     }
 
     .exp-logo img {
-        max-width: 120px;
+        max-width: 160px;
         max-height: 40px;
     }
 
