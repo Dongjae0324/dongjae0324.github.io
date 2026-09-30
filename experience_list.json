@@ -7,10 +7,6 @@
     "team": "AI Companion Team",
     "start": "Jul 2026",
     "end": "Feb 2027 (expected)",
-    "desc": "Building AI agents that play games with human-like perception.",
-    "lead": {
-      "name": "Hyunseung Kim",
-      "url": "https://mynsng.github.io/"
-    }
+    "desc": "Building AI agents that play games with human-like perception."
   }
 ]

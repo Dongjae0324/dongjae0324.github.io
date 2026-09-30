@@ -30,7 +30,7 @@ I am a first-year Master's student in Computer Science at <a href="https://www.y
 where I conduct research in the <a href="https://albert-no.github.io/" target="_blank">Artificial Intelligence and Information Systems Lab</a> 
 under the supervision of Professor <a href="https://albert-no.github.io/" target="_blank">Albert No</a>.
 I am currently a Research Scientist Intern at <a href="https://www.krafton.ai/" target="_blank">KRAFTON AI</a>, 
-where I work on vision-language-action (VLA) models and world models to build agents that play games like humans.
+mentored by <a href="https://mynsng.github.io/" target="_blank">Hyunseung Kim</a>, working on vision-language-action (VLA) models and world models to build agents that play games like humans.
 
 <p style="margin-top: 1em; line-height: 1.5;">
   I am broadly interested in how AI agents can <strong>understand</strong> and <strong>interact with</strong> the physical world.
@@ -317,7 +317,7 @@ def get_experience_html():
         desc = e.get("desc", "")
         if e.get("lead"):
             lead = e["lead"]
-            desc += f' Team led by <a href="{lead["url"]}" target="_blank">{lead["name"]}</a>.'
+            desc += f' Mentored by <a href="{lead["url"]}" target="_blank">{lead["name"]}</a>.'
         desc_html = f'<div class="exp-desc">{desc.strip()}</div>' if desc else ""
         s += f'''
     <div class="exp-item">
