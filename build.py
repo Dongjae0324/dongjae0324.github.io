@@ -29,22 +29,15 @@ def get_personal_data():
 I am a first-year Master's student in Computer Science at <a href="https://www.yonsei.ac.kr/en_sc/" target="_blank">Yonsei University</a>, 
 where I conduct research in the <a href="https://albert-no.github.io/" target="_blank">Artificial Intelligence and Information Systems Lab</a> 
 under the supervision of Professor <a href="https://albert-no.github.io/" target="_blank">Albert No</a>.
+I am currently a Research Scientist Intern at <a href="https://www.krafton.ai/" target="_blank">KRAFTON AI</a>, 
+where I work on vision-language-action (VLA) models and world models to build agents that play games like humans.
 
 <p style="margin-top: 1em; line-height: 1.5;">
-  I research generative modeling, focusing on improving models by analyzing their underlying mechanisms. My recent work includes addressing core challenges in diffusion LLMs (<a href="#pub-C4" class="cite-link">[C4]</a><a href="#pub-C7" class="cite-link">[C7]</a><a href="#pub-C9" class="cite-link">[C9]</a>), analyzing diffusion-based image generation (<a href="#pub-C2" class="cite-link">[C2]</a>), and enhancing model efficiency via quantization (<a href="#pub-C3" class="cite-link">[C3]</a><a href="#pub-C8" class="cite-link">[C8]</a>).
-  <br>Currently, I am interested in solving problems in reasoning in LLMs or diffusion LLMs (<a href="#pub-P1" class="cite-link">[P1]</a>). 
-</p>
-
-<p style="margin-top: 1em;">Quick overview:</p>
-<ul style="margin-top: 0.5em; padding-left: 1.2em;">
-    <li><span style="font-weight: 600;">Methodologies for generative models:</span> <a href="#pub-C4" class="cite-link">[C4]</a> <a href="#pub-C7" class="cite-link">[C7]</a> <a href="#pub-C9" class="cite-link">[C9]</a> <a href="#pub-P1" class="cite-link">[P1]</a></li>
-    <li><span style="font-weight: 600;">Quantization in LLMs:</span> <a href="#pub-C8" class="cite-link">[C8]</a> <a href="#pub-C3" class="cite-link">[C3]</a></li>
-    <li><span style="font-weight: 600;">Safety &amp; privacy issues:</span> <a href="#pub-C1" class="cite-link">[C1]</a> <a href="#pub-C2" class="cite-link">[C2]</a> <a href="#pub-C5" class="cite-link">[C5]</a> <a href="#pub-C6" class="cite-link">[C6]</a> <a href="#pub-P3" class="cite-link">[P3]</a></li>
-</ul>
-
-<p style="margin-top: 1em;">I also bring experience in <em>Continual Learning</em> for computer vision, specifically in Object Detection (See Awards).
-
-Ultimately, I aim to deepen our understanding of machine perception and translate those insights into reliable generative systems that are useful in the real world.
+  I am broadly interested in how AI agents can <strong>understand</strong> and <strong>interact with</strong> the physical world.
+  Previously, I worked on generative models and their reliability, including diffusion LLMs (<a href="#pub-C7" class="cite-link">[C7]</a><a href="#pub-C9" class="cite-link">[C9]</a><a href="#pub-W1" class="cite-link">[W1]</a><a href="#pub-W2" class="cite-link">[W2]</a>), 
+  efficient LLMs via quantization (<a href="#pub-C8" class="cite-link">[C8]</a>), 
+  and safety &amp; privacy (<a href="#pub-C2" class="cite-link">[C2]</a><a href="#pub-C5" class="cite-link">[C5]</a>). 
+  I also have experience in continual learning for object detection (see Awards).
 </p>
 """
     
@@ -312,6 +305,34 @@ def get_award_entry(entry_key, entry):
         </div>
     </div>
     '''
+
+
+def get_experience_html():
+    with open('experience_list.json', 'r') as f:
+        entries = json.load(f)
+
+    s = ""
+    for e in entries:
+        team = f'<span class="exp-team"> · {e["team"]}</span>' if e.get("team") else ""
+        desc = e.get("desc", "")
+        if e.get("lead"):
+            lead = e["lead"]
+            desc += f' Team led by <a href="{lead["url"]}" target="_blank">{lead["name"]}</a>.'
+        desc_html = f'<div class="exp-desc">{desc.strip()}</div>' if desc else ""
+        s += f'''
+    <div class="exp-item">
+        <div class="exp-logo">
+            <img src="{e['logo']}" alt="{e['org']}">
+        </div>
+        <div class="exp-content">
+            <div class="exp-org"><a href="{e['url']}" target="_blank">{e['org']}</a></div>
+            <div class="exp-role">{e['role']}{team}</div>
+            {desc_html}
+        </div>
+        <div class="exp-date">{e['start']} – {e['end']}</div>
+    </div>
+    '''
+    return s
 
 
 def get_news_html():
@@ -834,6 +855,61 @@ def get_css():
         flex: 1;
     }
     
+    /* Experience Section */
+    .exp-item {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        padding: 0.75rem 0;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .exp-item:last-child {
+        border-bottom: none;
+    }
+
+    .exp-logo {
+        width: 180px;
+        flex-shrink: 0;
+        display: flex;
+        justify-content: center;
+    }
+
+    .exp-logo img {
+        max-width: 120px;
+        max-height: 40px;
+    }
+
+    .exp-content {
+        flex: 1;
+    }
+
+    .exp-org a {
+        font-weight: 600;
+        font-size: 0.9rem;
+    }
+
+    .exp-role {
+        font-size: 0.85rem;
+        color: var(--primary);
+    }
+
+    .exp-team {
+        color: var(--muted);
+    }
+
+    .exp-desc {
+        font-size: 0.8rem;
+        color: var(--muted);
+        margin-top: 0.1rem;
+    }
+
+    .exp-date {
+        font-size: 0.8rem;
+        color: var(--muted);
+        white-space: nowrap;
+    }
+
     /* Blog Section */
     .blog-item {
         padding: 2rem 0;
@@ -964,6 +1040,21 @@ def get_css():
             gap: 0.25rem;
         }
         
+        .exp-item {
+            flex-wrap: wrap;
+            gap: 0.25rem 1rem;
+        }
+        
+        .exp-logo {
+            width: 80px;
+            justify-content: flex-start;
+        }
+        
+        .exp-date {
+            width: 100%;
+            padding-left: calc(80px + 1rem);
+        }
+        
         .nav-links {
             gap: 1rem;
         }
@@ -974,6 +1065,7 @@ def get_css():
 def get_index_html():
     data = get_personal_data()
     news = get_news_html()
+    experience = get_experience_html()
     prep, prep_count = get_preprints_html(start_num=1)
     pub = get_publications_html(start_num=prep_count + 1)
     talks = get_talks_html()
@@ -1008,6 +1100,7 @@ def get_index_html():
             <a href="#" class="nav-brand">{data['name'][0]} {data['name'][1]}</a>
             <div class="nav-links">
                 <a href="#about" class="active">About</a>
+                <a href="#experience">Experience</a>
                 <a href="#publications">Publications</a>
                 <a href="#awards">Awards</a>
                 <a href="#blog">Blog</a>
@@ -1053,6 +1146,12 @@ def get_index_html():
         <section class="section">
             <h2 class="section-header">News</h2>
             {news}
+        </section>
+        
+        <!-- Experience Section -->
+        <section id="experience" class="section">
+            <h2 class="section-header">Experience</h2>
+            {experience}
         </section>
         
         <!-- Selected Publications -->

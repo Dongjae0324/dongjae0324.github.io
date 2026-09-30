@@ -1,0 +1,16 @@
+[
+  {
+    "org": "KRAFTON AI",
+    "url": "https://www.krafton.ai/",
+    "logo": "assets/img/experience/krafton.svg",
+    "role": "Research Scientist Intern",
+    "team": "AI Companion Team",
+    "start": "Jul 2026",
+    "end": "Feb 2027 (expected)",
+    "desc": "Building AI agents that play games with human-like perception.",
+    "lead": {
+      "name": "Hyunseung Kim",
+      "url": "https://mynsng.github.io/"
+    }
+  }
+]

@@ -13,40 +13,15 @@
 
 
 
-@inproceedings{yoon2026dpo_attack,
-  title={Few-Shot Truly Benign DPO Attack for Jailbreaking LLMs},
-  author = {Yoon, Sangyeon and Jeung, Wonje and Cho, Yoonjun and Jeon, Dongjae and No, Albert},
-  coauthor={Sangyeon Yoon, Wonje Jeung},
-  booktitle  = {Under Review},
+@inproceedings{jeon2026lcr_diversity,
+  title={Low-Confidence Remasking Traps Flexibility: Realizing Arbitrary-Order Potential for Diverse Rollouts in Diffusion LLMs},
+  author = {Jeon, Moongyu and Jeon, Dongjae and Kim, Bumjun and Kim, Mingyu and No, Albert},
+  coauthor={Moongyu Jeon, Dongjae Jeon},
+  booktitle  = {NeurIPS BeNTo, DiffuLM workshop},
   year      = {2026},
-  pub_id = {P3},
-  html = {https://arxiv.org/},
-  img = {assets/img/publications/dpo_attack.jpg},
-  tldr = {We propose a truly benign DPO attack that jailbreaks frontier LLMs using only 10 harmless preference pairs that look indistinguishable from ordinary over-refusal reduction data, pairing benign prompts with a helpful answer (preferred) and a refusal (dispreferred). Because DPO directly suppresses refusal behavior, the effect transfers to unseen harmful prompts, reaching up to 81.73% ASR on GPT-4.1-nano for $0.1 while evading the OpenAI Moderation API and frontier-scale LLM auditors.},
-}
-
-
-@inproceedings{hong2026vlm_tracing,
-  title={VLMs Trace Without Tracking: Diagnosing Failures in Visual Path Following},
-  author = {Hong, Hyesoo and Kim, Minsoo and Jeung, Wonje and Yoon, Sangyeon and Jeon, Dongjae and No, Albert},
-  booktitle  = {Under Review},
-  year      = {2026},
-  pub_id = {P2},
-  html = {https://arxiv.org/},
-  img = {assets/img/publications/vlm_tracing.jpg},
-  tldr = {We diagnose why state-of-the-art VLMs lose a selected visual path when nearby alternatives look locally similar: behavioral interventions, causal masking, and internal attention/representation analyses converge on a single mechanism — nearby distractors pull the model off the true continuation, producing systematic adjacent-path jumps. Standard remedies (model scaling, reasoning, explicit tracing instructions) fail to recover stable path following, and the same failure persists on real metro maps and tangled cables.},
-}
-
-
-@inproceedings{jeon2026rollout_init,
-  title={Single-Step Initialization for Exploratory Parallel Rollouts in Diffusion LLMs},
-  author = {Jeon, Dongjae and Kim, Bumjun and Kim, Mingyu and No, Albert},
-  coauthor={Dongjae Jeon, Bumjun Kim},
-  booktitle  = {ICML RLxF, SPIGM workshop},
-  year      = {2026},
-  pub_id = {W1},
-  html = {https://arxiv.org/},
-  img = {assets/img/publications/single_step_rollout.jpg},
-  tldr = {Parallel decoding makes diffusion LLM rollouts faster, but confidence-based selection keeps rollouts nearly identical by delaying branching. A single random unmasking step before decoding forces early branching, restoring rollout diversity and improving downstream RL performance without changing the decoder.},
+  pub_id = {W2},
+  html = {https://arxiv.org/abs/2609.34509},
+  img = {assets/img/publications/comingsoon.jpg},
+  tldr = {We trace the diversity loss of arbitrary-order decoding in diffusion LLMs not to the generation order itself, but to low-confidence remasking (LCR), which exponentially suppresses lower-probability tokens as more positions compete. Switching to top-probability position selection (TPP) restores diversity with Pass@k comparable to left-to-right decoding, and Entropy-Guided Initialization (EGI) further improves rollout diversity, solution coverage, and downstream policy optimization.},
 }
 
