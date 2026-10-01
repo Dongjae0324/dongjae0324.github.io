@@ -73,5 +73,10 @@
     "month": 9,
     "year": 2026,
     "content": "New preprint (<span style=\"color:#2667ff; font-weight: normal;\">LCR Traps Flexibility</span>) accepted to NeurIPS 2026 workshops (<a href=\"https://bento-neurips.github.io/\" target=\"_blank\" style=\"color:#2667ff;\">BeNTo</a>, <a href=\"https://7amin.github.io/diffulm-neurips2026/\" target=\"_blank\" style=\"color:#2667ff;\">DiffuLM</a>)!"
+  },
+  {
+    "month": 9,
+    "year": 2026,
+    "content": "A paper on VLM reward models for robotics (<span style=\"color:#2667ff; font-weight: normal;\">RoboRMBench</span>) accepted to EMNLP 2026 as <span style=\"color:#2667ff; font-weight: normal;\">Oral</span>!"
   }
 ]
